@@ -12,12 +12,12 @@ interface TechIcon {
 }
 
 const techIcons: TechIcon[] = [
-  { name: 'Java', color: '#f89820', orbitRadius: 3, speed: 0.3, startAngle: 0 },
-  { name: 'Python', color: '#3776ab', orbitRadius: 3.5, speed: 0.25, startAngle: Math.PI / 3 },
-  { name: 'JS', color: '#f7df1e', orbitRadius: 4, speed: 0.2, startAngle: (2 * Math.PI) / 3 },
-  { name: 'Spring', color: '#6db33f', orbitRadius: 4.5, speed: 0.15, startAngle: Math.PI },
-  { name: 'SQL', color: '#00758f', orbitRadius: 3.2, speed: 0.35, startAngle: (4 * Math.PI) / 3 },
-  { name: 'Git', color: '#f05032', orbitRadius: 3.8, speed: 0.28, startAngle: (5 * Math.PI) / 3 },
+  { name: 'Java', color: '#ff6b35', orbitRadius: 3, speed: 0.3, startAngle: 0 },
+  { name: 'Python', color: '#facc15', orbitRadius: 3.5, speed: 0.25, startAngle: Math.PI / 3 },
+  { name: 'JS', color: '#a3e635', orbitRadius: 4, speed: 0.2, startAngle: (2 * Math.PI) / 3 },
+  { name: 'Spring', color: '#06b6d4', orbitRadius: 4.5, speed: 0.15, startAngle: Math.PI },
+  { name: 'SQL', color: '#d946ef', orbitRadius: 3.2, speed: 0.35, startAngle: (4 * Math.PI) / 3 },
+  { name: 'Git', color: '#a855f7', orbitRadius: 3.8, speed: 0.28, startAngle: (5 * Math.PI) / 3 },
 ];
 
 interface OrbitingIconProps {
@@ -77,7 +77,7 @@ export const TechOrbit = () => {
       {[3, 3.5, 4, 4.5].map((radius, i) => (
         <mesh key={i} rotation={[-Math.PI / 2, 0, 0]}>
           <ringGeometry args={[radius - 0.01, radius + 0.01, 64]} />
-          <meshBasicMaterial color="#00f5ff" transparent opacity={0.1} side={THREE.DoubleSide} />
+          <meshBasicMaterial color="#ff6b35" transparent opacity={0.15} side={THREE.DoubleSide} />
         </mesh>
       ))}
       {/* Tech icons */}

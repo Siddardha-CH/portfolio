@@ -16,17 +16,19 @@ const HeroScene = () => {
     <>
       <PerspectiveCamera makeDefault position={[0, 0, 12]} fov={60} />
       <ambientLight intensity={0.2} />
-      <pointLight position={[10, 10, 10]} intensity={0.5} color="#00f5ff" />
-      <pointLight position={[-10, -10, -10]} intensity={0.3} color="#8b5cf6" />
+      <pointLight position={[10, 10, 10]} intensity={0.6} color="#ff6b35" />
+      <pointLight position={[-10, -10, -10]} intensity={0.4} color="#d946ef" />
+      <pointLight position={[0, 10, -5]} intensity={0.3} color="#a3e635" />
       
-      <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={0.5} />
-      <ParticleField count={1500} size={0.02} color="#00f5ff" spread={50} />
+      <Stars radius={100} depth={50} count={3000} factor={4} saturation={0.8} fade speed={0.5} />
+      <ParticleField count={1500} size={0.02} color="#ff6b35" spread={50} />
       
-      {/* Floating geometries */}
-      <FloatingGeometry position={[-6, 3, -5]} geometry="octahedron" color="#00f5ff" scale={0.8} />
-      <FloatingGeometry position={[7, -2, -3]} geometry="icosahedron" color="#8b5cf6" scale={0.6} />
-      <FloatingGeometry position={[-5, -3, -4]} geometry="torus" color="#10b981" scale={0.5} />
-      <FloatingGeometry position={[5, 4, -6]} geometry="box" color="#f59e0b" scale={0.4} />
+      {/* Floating geometries with new color palette */}
+      <FloatingGeometry position={[-6, 3, -5]} geometry="octahedron" color="#ff6b35" scale={0.8} />
+      <FloatingGeometry position={[7, -2, -3]} geometry="icosahedron" color="#d946ef" scale={0.6} />
+      <FloatingGeometry position={[-5, -3, -4]} geometry="torus" color="#a3e635" scale={0.5} />
+      <FloatingGeometry position={[5, 4, -6]} geometry="box" color="#facc15" scale={0.4} />
+      <FloatingGeometry position={[0, -4, -7]} geometry="octahedron" color="#06b6d4" scale={0.45} />
       
       {/* Tech orbit */}
       <TechOrbit />
@@ -67,8 +69,9 @@ export const HeroSection = () => {
       </div>
 
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background z-10 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-radial from-neon-coral/10 via-neon-magenta/5 to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-radial from-neon-lime/5 to-transparent z-10 pointer-events-none" />
 
       {/* Content */}
       <motion.div
@@ -98,7 +101,7 @@ export const HeroSection = () => {
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mt-2 mb-4">
             <span className="text-foreground">Siddardha</span>
             <br />
-            <span className="text-primary text-glow-cyan">Chiluveru</span>
+            <span className="holographic text-glow-coral">Chiluveru</span>
           </h1>
         </motion.div>
 
@@ -124,27 +127,27 @@ export const HeroSection = () => {
           transition={{ delay: 1 }}
           className="flex flex-wrap justify-center gap-8 mb-10"
         >
-          <div className="glass px-6 py-4 rounded-xl">
+          <div className="glass-aurora px-6 py-4 rounded-xl hover-burst">
             <AnimatedCounter
               target={500}
               suffix="+"
-              className="text-4xl md:text-5xl font-display font-bold text-primary text-glow-cyan"
+              className="text-4xl md:text-5xl font-display font-bold text-neon-coral text-glow-coral"
             />
             <p className="text-sm text-muted-foreground mt-1">LeetCode Problems</p>
           </div>
-          <div className="glass px-6 py-4 rounded-xl">
+          <div className="glass-aurora px-6 py-4 rounded-xl hover-burst">
             <AnimatedCounter
               target={10}
               suffix="+"
-              className="text-4xl md:text-5xl font-display font-bold text-secondary"
+              className="text-4xl md:text-5xl font-display font-bold text-neon-magenta text-glow-magenta"
             />
             <p className="text-sm text-muted-foreground mt-1">Projects Built</p>
           </div>
-          <div className="glass px-6 py-4 rounded-xl">
+          <div className="glass-aurora px-6 py-4 rounded-xl hover-burst">
             <AnimatedCounter
               target={3}
               suffix="+"
-              className="text-4xl md:text-5xl font-display font-bold text-neon-green"
+              className="text-4xl md:text-5xl font-display font-bold text-neon-lime text-glow-lime"
             />
             <p className="text-sm text-muted-foreground mt-1">Years Coding</p>
           </div>
@@ -157,15 +160,15 @@ export const HeroSection = () => {
           transition={{ delay: 1.2 }}
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
-          <GlowingButton href="https://github.com" variant="cyan" external>
+          <GlowingButton href="https://github.com" variant="coral" external>
             <Github className="w-5 h-5" />
             GitHub
           </GlowingButton>
-          <GlowingButton href="https://linkedin.com" variant="purple" external>
+          <GlowingButton href="https://linkedin.com" variant="magenta" external>
             <Linkedin className="w-5 h-5" />
             LinkedIn
           </GlowingButton>
-          <GlowingButton href="https://leetcode.com" variant="green" external>
+          <GlowingButton href="https://leetcode.com" variant="lime" external>
             <Code2 className="w-5 h-5" />
             LeetCode
           </GlowingButton>
