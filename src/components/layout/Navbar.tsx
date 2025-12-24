@@ -41,7 +41,7 @@ export const Navbar = () => {
             className="text-2xl font-display font-bold text-foreground"
             whileHover={{ scale: 1.05 }}
           >
-            SC<span className="text-primary">.</span>
+            SC<span className="text-neon-coral">.</span>
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -62,7 +62,7 @@ export const Navbar = () => {
           {/* CTA Button */}
           <motion.a
             href="#contact"
-            className="hidden md:inline-flex px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:shadow-[0_0_20px_hsl(var(--neon-cyan)/0.5)] transition-shadow"
+            className="hidden md:inline-flex px-5 py-2.5 rounded-lg bg-neon-coral text-space-void font-medium text-sm hover:shadow-[0_0_30px_hsl(var(--neon-coral)/0.5)] transition-all"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -109,7 +109,7 @@ export const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: navItems.length * 0.1 }}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-4 px-8 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-lg"
+                className="mt-4 px-8 py-3 rounded-lg bg-neon-coral text-space-void font-medium text-lg glow-coral"
               >
                 Get in Touch
               </motion.a>

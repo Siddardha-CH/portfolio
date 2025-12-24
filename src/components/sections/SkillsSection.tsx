@@ -151,7 +151,7 @@ export const SkillsSection = () => {
   return (
     <section className="py-20 md:py-32 px-4 relative overflow-hidden min-h-screen">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-space-mid/20 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-space-nebula/20 to-background" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionTitle
@@ -174,7 +174,7 @@ export const SkillsSection = () => {
               onClick={() => setActiveCategory(category)}
               className={`px-4 py-2 rounded-full font-mono text-sm transition-all duration-300 ${
                 activeCategory === category
-                  ? 'bg-primary text-primary-foreground glow-cyan'
+                  ? 'bg-neon-coral text-space-void glow-coral'
                   : 'bg-muted text-muted-foreground hover:bg-muted/80'
               }`}
               whileHover={{ scale: 1.05 }}

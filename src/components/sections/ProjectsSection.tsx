@@ -30,7 +30,7 @@ const projects: Project[] = [
     solution: 'Built an AI-driven system that automates routine tasks, provides intelligent insights, and integrates seamlessly with existing workflows.',
     techStack: ['Java', 'Spring Boot', 'MySQL', 'REST APIs', 'AI/ML'],
     icon: <Brain className="w-8 h-8" />,
-    color: '#00f5ff',
+    color: '#ff6b35',
     features: [
       'AI-powered task automation',
       'Intelligent inventory management',
@@ -47,7 +47,7 @@ const projects: Project[] = [
     solution: 'Developed a face recognition system using OpenCV that captures and verifies identities in real-time with high accuracy.',
     techStack: ['Python', 'OpenCV', 'Computer Vision', 'MySQL', 'Flask'],
     icon: <Camera className="w-8 h-8" />,
-    color: '#8b5cf6',
+    color: '#d946ef',
     features: [
       'Real-time face detection',
       'High accuracy recognition',
@@ -64,7 +64,7 @@ const projects: Project[] = [
     solution: 'Created a minimalist CLI music player with playlist management, audio controls, and efficient memory usage.',
     techStack: ['Java', 'Core Java', 'File I/O', 'Audio APIs'],
     icon: <Music className="w-8 h-8" />,
-    color: '#10b981',
+    color: '#a3e635',
     features: [
       'Multiple audio format support',
       'Playlist management',
@@ -225,8 +225,8 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             <h4 className="font-display font-semibold text-destructive mb-2">The Problem</h4>
             <p className="text-sm text-muted-foreground">{project.problem}</p>
           </div>
-          <div className="p-4 rounded-xl bg-neon-green/10 border border-neon-green/20">
-            <h4 className="font-display font-semibold text-neon-green mb-2">The Solution</h4>
+          <div className="p-4 rounded-xl bg-neon-lime/10 border border-neon-lime/20">
+            <h4 className="font-display font-semibold text-neon-lime mb-2">The Solution</h4>
             <p className="text-sm text-muted-foreground">{project.solution}</p>
           </div>
         </div>
@@ -275,13 +275,13 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
         {/* Actions */}
         <div className="flex flex-wrap gap-4">
           {project.github && (
-            <GlowingButton href={project.github} variant="cyan" external>
+            <GlowingButton href={project.github} variant="coral" external>
               <Github className="w-4 h-4" />
               View Code
             </GlowingButton>
           )}
           {project.demo && (
-            <GlowingButton href={project.demo} variant="purple" external>
+            <GlowingButton href={project.demo} variant="magenta" external>
               <ExternalLink className="w-4 h-4" />
               Live Demo
             </GlowingButton>
@@ -299,8 +299,9 @@ export const ProjectsSection = () => {
     <section className="py-20 md:py-32 px-4 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-neon-coral/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-neon-magenta/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-neon-lime/5 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">

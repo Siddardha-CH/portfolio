@@ -46,7 +46,8 @@ export const ResumeSection = () => {
     <section className="py-20 md:py-32 px-4 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-neon-magenta/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-0 w-[300px] h-[300px] bg-neon-gold/5 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -118,7 +119,7 @@ export const ResumeSection = () => {
             </div>
 
             {/* Download button */}
-            <GlowingButton variant="cyan" size="lg" className="w-full">
+            <GlowingButton variant="coral" size="lg" className="w-full">
               <Download className="w-5 h-5" />
               Download Resume
             </GlowingButton>
