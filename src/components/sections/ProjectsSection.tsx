@@ -275,13 +275,13 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
         {/* Actions */}
         <div className="flex flex-wrap gap-4">
           {project.github && (
-            <GlowingButton href={project.github} variant="coral" external>
+            <GlowingButton href={project.github} variant="primary" external>
               <Github className="w-4 h-4" />
               View Code
             </GlowingButton>
           )}
           {project.demo && (
-            <GlowingButton href={project.demo} variant="magenta" external>
+            <GlowingButton href={project.demo} variant="outline" external>
               <ExternalLink className="w-4 h-4" />
               Live Demo
             </GlowingButton>

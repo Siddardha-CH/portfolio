@@ -1,5 +1,4 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Trophy, Medal, Award, Target, Star, Zap } from 'lucide-react';
 import { SectionTitle } from '@/components/ui/SectionTitle';
 import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
@@ -10,7 +9,6 @@ interface Achievement {
   value: number;
   suffix: string;
   description: string;
-  color: string;
 }
 
 const achievements: Achievement[] = [
@@ -20,7 +18,6 @@ const achievements: Achievement[] = [
     value: 500,
     suffix: '+',
     description: 'Solved across Easy, Medium, and Hard difficulty',
-    color: '#00f5ff',
   },
   {
     icon: <Trophy className="w-8 h-8" />,
@@ -28,7 +25,6 @@ const achievements: Achievement[] = [
     value: 20,
     suffix: '+',
     description: 'Coding competitions and hackathons participated',
-    color: '#f59e0b',
   },
   {
     icon: <Star className="w-8 h-8" />,
@@ -36,7 +32,6 @@ const achievements: Achievement[] = [
     value: 15,
     suffix: '+',
     description: 'Open source projects and contributions',
-    color: '#8b5cf6',
   },
   {
     icon: <Zap className="w-8 h-8" />,
@@ -44,7 +39,6 @@ const achievements: Achievement[] = [
     value: 50,
     suffix: '+',
     description: 'Algorithms and data structures mastered',
-    color: '#10b981',
   },
 ];
 
@@ -52,11 +46,10 @@ interface BadgeProps {
   title: string;
   description: string;
   icon: React.ReactNode;
-  color: string;
   delay: number;
 }
 
-const AchievementBadge = ({ title, description, icon, color, delay }: BadgeProps) => {
+const AchievementBadge = ({ title, description, icon, delay }: BadgeProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0, rotate: -180 }}
@@ -66,18 +59,12 @@ const AchievementBadge = ({ title, description, icon, color, delay }: BadgeProps
       className="flex flex-col items-center text-center group"
     >
       <motion.div
-        className="w-20 h-20 rounded-full flex items-center justify-center mb-4 relative"
-        style={{
-          backgroundColor: `${color}15`,
-          color: color,
-          boxShadow: `0 0 30px ${color}30`,
-        }}
+        className="w-20 h-20 rounded-full flex items-center justify-center mb-4 relative border border-foreground/20 text-foreground bg-foreground/5"
         whileHover={{ scale: 1.1, rotate: 10 }}
       >
         {icon}
         <motion.div
-          className="absolute inset-0 rounded-full border-2"
-          style={{ borderColor: color }}
+          className="absolute inset-0 rounded-full border border-foreground/30"
           animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0, 0.5] }}
           transition={{ duration: 2, repeat: Infinity }}
         />
@@ -90,9 +77,9 @@ const AchievementBadge = ({ title, description, icon, color, delay }: BadgeProps
 
 const LeetCodeProgress = () => {
   const difficulties = [
-    { label: 'Easy', solved: 200, total: 800, color: '#10b981' },
-    { label: 'Medium', solved: 250, total: 1700, color: '#f59e0b' },
-    { label: 'Hard', solved: 50, total: 750, color: '#ef4444' },
+    { label: 'Easy', solved: 200, total: 800 },
+    { label: 'Medium', solved: 250, total: 1700 },
+    { label: 'Hard', solved: 50, total: 750 },
   ];
 
   return (
@@ -100,14 +87,14 @@ const LeetCodeProgress = () => {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="glass rounded-2xl p-6 md:p-8"
+      className="glass rounded-sm p-6 md:p-8"
     >
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
-          <Target className="w-6 h-6 text-primary" />
+        <div className="w-12 h-12 rounded-sm bg-foreground/10 flex items-center justify-center border border-foreground/20">
+          <Target className="w-6 h-6 text-foreground" />
         </div>
         <div>
-          <h3 className="text-xl font-display font-bold text-foreground">LeetCode Journey</h3>
+          <h3 className="text-xl font-display font-bold text-foreground tracking-wider">LEETCODE JOURNEY</h3>
           <p className="text-sm text-muted-foreground">Problem Solving Progress</p>
         </div>
       </div>
@@ -116,7 +103,7 @@ const LeetCodeProgress = () => {
         <AnimatedCounter
           target={500}
           suffix="+"
-          className="text-6xl font-display font-bold text-primary text-glow-cyan"
+          className="text-6xl font-display font-bold text-foreground text-glow"
         />
         <p className="text-muted-foreground mt-2">Total Problems Solved</p>
       </div>
@@ -131,17 +118,16 @@ const LeetCodeProgress = () => {
             viewport={{ once: true }}
           >
             <div className="flex justify-between text-sm mb-1">
-              <span style={{ color: diff.color }} className="font-semibold">
+              <span className="font-semibold text-foreground">
                 {diff.label}
               </span>
-              <span className="text-muted-foreground">
+              <span className="text-muted-foreground font-mono">
                 {diff.solved} / {diff.total}
               </span>
             </div>
-            <div className="h-3 bg-muted rounded-full overflow-hidden">
+            <div className="h-2 bg-muted rounded-full overflow-hidden">
               <motion.div
-                className="h-full rounded-full"
-                style={{ backgroundColor: diff.color }}
+                className="h-full rounded-full bg-foreground"
                 initial={{ width: 0 }}
                 whileInView={{ width: `${(diff.solved / diff.total) * 100}%` }}
                 transition={{ duration: 1, delay: i * 0.1 }}
@@ -160,7 +146,7 @@ export const AchievementsSection = () => {
     <section className="py-20 md:py-32 px-4 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-foreground/3 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -179,28 +165,19 @@ export const AchievementsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="glass rounded-2xl p-6 text-center group hover:scale-105 transition-transform duration-300"
-              style={{
-                boxShadow: `0 0 0 1px ${achievement.color}20`,
-              }}
+              className="glass rounded-sm p-6 text-center group hover:glow-white-soft transition-all duration-300 border border-foreground/10"
             >
-              <div
-                className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4"
-                style={{
-                  backgroundColor: `${achievement.color}15`,
-                  color: achievement.color,
-                }}
-              >
+              <div className="w-14 h-14 rounded-sm flex items-center justify-center mx-auto mb-4 bg-foreground/5 text-foreground border border-foreground/20">
                 {achievement.icon}
               </div>
               <AnimatedCounter
                 target={achievement.value}
                 suffix={achievement.suffix}
-                className="text-4xl font-display font-bold"
+                className="text-4xl font-display font-bold text-foreground"
                 duration={2}
               />
-              <h4 className="font-display font-semibold text-foreground mt-2 mb-1">
-                {achievement.title}
+              <h4 className="font-display font-semibold text-foreground mt-2 mb-1 tracking-wider">
+                {achievement.title.toUpperCase()}
               </h4>
               <p className="text-sm text-muted-foreground">{achievement.description}</p>
             </motion.div>
@@ -212,30 +189,27 @@ export const AchievementsSection = () => {
           <LeetCodeProgress />
 
           {/* Achievement Badges */}
-          <div className="glass rounded-2xl p-6 md:p-8">
-            <h3 className="text-xl font-display font-bold text-foreground mb-6 text-center">
-              Badges Earned
+          <div className="glass rounded-sm p-6 md:p-8">
+            <h3 className="text-xl font-display font-bold text-foreground mb-6 text-center tracking-wider">
+              BADGES EARNED
             </h3>
             <div className="grid grid-cols-3 gap-6">
               <AchievementBadge
                 title="Problem Solver"
                 description="500+ problems"
                 icon={<Medal className="w-8 h-8" />}
-                color="#00f5ff"
                 delay={0}
               />
               <AchievementBadge
                 title="Consistent"
                 description="Daily practice"
                 icon={<Zap className="w-8 h-8" />}
-                color="#8b5cf6"
                 delay={0.1}
               />
               <AchievementBadge
                 title="Hard Crusher"
                 description="50+ hard problems"
                 icon={<Award className="w-8 h-8" />}
-                color="#ef4444"
                 delay={0.2}
               />
             </div>

@@ -5,7 +5,7 @@ interface GlowingButtonProps {
   children: React.ReactNode;
   href?: string;
   onClick?: () => void;
-  variant?: 'coral' | 'magenta' | 'lime' | 'gold' | 'azure';
+  variant?: 'primary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   external?: boolean;
@@ -15,17 +15,15 @@ export const GlowingButton = ({
   children,
   href,
   onClick,
-  variant = 'coral',
+  variant = 'primary',
   size = 'md',
   className = '',
   external = false,
 }: GlowingButtonProps) => {
   const variantStyles = {
-    coral: 'bg-neon-coral/10 border-neon-coral text-neon-coral hover:bg-neon-coral hover:text-space-void shadow-[0_0_20px_hsl(var(--neon-coral)/0.3)] hover:shadow-[0_0_40px_hsl(var(--neon-coral)/0.6)]',
-    magenta: 'bg-neon-magenta/10 border-neon-magenta text-neon-magenta hover:bg-neon-magenta hover:text-space-void shadow-[0_0_20px_hsl(var(--neon-magenta)/0.3)] hover:shadow-[0_0_40px_hsl(var(--neon-magenta)/0.6)]',
-    lime: 'bg-neon-lime/10 border-neon-lime text-neon-lime hover:bg-neon-lime hover:text-space-void shadow-[0_0_20px_hsl(var(--neon-lime)/0.3)] hover:shadow-[0_0_40px_hsl(var(--neon-lime)/0.6)]',
-    gold: 'bg-neon-gold/10 border-neon-gold text-neon-gold hover:bg-neon-gold hover:text-space-void shadow-[0_0_20px_hsl(var(--neon-gold)/0.3)] hover:shadow-[0_0_40px_hsl(var(--neon-gold)/0.6)]',
-    azure: 'bg-neon-azure/10 border-neon-azure text-neon-azure hover:bg-neon-azure hover:text-space-void shadow-[0_0_20px_hsl(var(--neon-azure)/0.3)] hover:shadow-[0_0_40px_hsl(var(--neon-azure)/0.6)]',
+    primary: 'bg-foreground text-background hover:bg-foreground/90 glow-white-soft hover:glow-white',
+    outline: 'bg-transparent border-2 border-foreground text-foreground hover:bg-foreground hover:text-background',
+    ghost: 'bg-foreground/5 border border-foreground/20 text-foreground hover:bg-foreground/10 hover:border-foreground/40',
   };
 
   const sizeStyles = {
@@ -35,7 +33,7 @@ export const GlowingButton = ({
   };
 
   const baseStyles = cn(
-    'relative inline-flex items-center justify-center gap-2 rounded-lg border-2 font-display font-medium tracking-wide transition-all duration-300',
+    'relative inline-flex items-center justify-center gap-2 rounded-sm font-medium tracking-wider uppercase transition-all duration-300',
     variantStyles[variant],
     sizeStyles[size],
     className
@@ -50,8 +48,8 @@ export const GlowingButton = ({
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
       className={baseStyles}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
     >
       {children}
     </MotionComponent>
