@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Orbitron', 'sans-serif'],
-        body: ['Rajdhani', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
+        display: ['Bebas Neue', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {
@@ -52,19 +52,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        neon: {
-          coral: "hsl(var(--neon-coral))",
-          magenta: "hsl(var(--neon-magenta))",
-          lime: "hsl(var(--neon-lime))",
-          gold: "hsl(var(--neon-gold))",
-          azure: "hsl(var(--neon-azure))",
-          violet: "hsl(var(--neon-violet))",
-        },
-        space: {
-          void: "hsl(var(--space-void))",
-          nebula: "hsl(var(--space-nebula))",
-          dust: "hsl(var(--space-dust))",
-        },
+        // Monochrome palette
+        white: "hsl(var(--pure-white))",
+        silver: "hsl(var(--silver))",
+        gray: "hsl(var(--mid-gray))",
+        charcoal: "hsl(var(--charcoal))",
+        black: "hsl(var(--pure-black))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -108,16 +101,6 @@ export default {
           "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
           "50%": { transform: "translateY(-10px) rotate(2deg)" },
         },
-        "pulse-glow": {
-          "0%, 100%": { 
-            boxShadow: "0 0 20px hsl(var(--neon-cyan) / 0.5)",
-            transform: "scale(1)"
-          },
-          "50%": { 
-            boxShadow: "0 0 40px hsl(var(--neon-cyan) / 0.8), 0 0 60px hsl(var(--neon-cyan) / 0.4)",
-            transform: "scale(1.02)"
-          },
-        },
         "spin-slow": {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
@@ -128,10 +111,6 @@ export default {
         },
         "blink": {
           "50%": { borderColor: "transparent" },
-        },
-        "shimmer": {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
         },
       },
       animation: {
@@ -144,20 +123,11 @@ export default {
         "slide-in-right": "slide-in-right 0.6s ease-out forwards",
         "float": "float 6s ease-in-out infinite",
         "float-slow": "float-slow 8s ease-in-out infinite",
-        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "spin-slow": "spin-slow 20s linear infinite",
         "typing": "typing 3.5s steps(40, end), blink .75s step-end infinite",
-        "shimmer": "shimmer 2s linear infinite",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "hero-gradient": "linear-gradient(135deg, hsl(var(--space-void)) 0%, hsl(var(--space-nebula)) 50%, hsl(var(--space-void)) 100%)",
-        "aurora-gradient": "linear-gradient(135deg, hsl(var(--neon-coral)) 0%, hsl(var(--neon-magenta)) 50%, hsl(var(--neon-violet)) 100%)",
-        "aurora-vertical": "linear-gradient(180deg, hsl(var(--neon-coral) / 0.2) 0%, hsl(var(--neon-magenta) / 0.1) 50%, transparent 100%)",
-        "card-gradient": "linear-gradient(180deg, hsl(var(--card)) 0%, hsl(var(--space-void)) 100%)",
-        "lime-gradient": "linear-gradient(135deg, hsl(var(--neon-lime)) 0%, hsl(var(--neon-azure)) 100%)",
-        "gold-gradient": "linear-gradient(135deg, hsl(var(--neon-gold)) 0%, hsl(var(--neon-coral)) 100%)",
       },
     },
   },

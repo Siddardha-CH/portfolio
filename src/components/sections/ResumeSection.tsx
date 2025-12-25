@@ -119,7 +119,7 @@ export const ResumeSection = () => {
             </div>
 
             {/* Download button */}
-            <GlowingButton variant="coral" size="lg" className="w-full">
+            <GlowingButton variant="primary" size="lg" className="w-full">
               <Download className="w-5 h-5" />
               Download Resume
             </GlowingButton>
