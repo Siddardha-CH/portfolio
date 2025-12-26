@@ -4,21 +4,23 @@ import { Send, Terminal, Github, Linkedin, Code2, Mail, MapPin, Loader2, CheckCi
 import { SectionTitle } from '@/components/ui/SectionTitle';
 import { GlowingButton } from '@/components/ui/GlowingButton';
 import { useToast } from '@/hooks/use-toast';
+import emailjs from 'emailjs-com';
+
 
 const terminalLines = [
   { text: '> whoami', delay: 0 },
   { text: 'Siddardha Chiluveru', delay: 0.3, color: 'primary' },
   { text: '> location', delay: 0.6 },
-  { text: 'Hyderabad, India', delay: 0.9, color: 'secondary' },
+  { text: 'Hyderabad, India', delay: 0.9, color: 'primary' },
   { text: '> status', delay: 1.2 },
   { text: 'Open to opportunities_', delay: 1.5, color: 'neon-green' },
 ];
 
 const contactLinks = [
-  { name: 'GitHub', icon: <Github className="w-5 h-5" />, url: 'https://github.com', color: '#ffffff' },
-  { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, url: 'https://linkedin.com', color: '#0077b5' },
-  { name: 'LeetCode', icon: <Code2 className="w-5 h-5" />, url: 'https://leetcode.com', color: '#ffa116' },
-  { name: 'Email', icon: <Mail className="w-5 h-5" />, url: 'mailto:siddardha@example.com', color: '#00f5ff' },
+  { name: 'GitHub', icon: <Github className="w-5 h-5" />, url: 'https://github.com/siddardha-CH', color: '#ffffff' },
+  { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, url: 'https://www.linkedin.com/in/siddardha-ch-5baba0204/', color: '#0077b5' },
+  { name: 'LeetCode', icon: <Code2 className="w-5 h-5" />, url: 'https://leetcode.com/u/siddardha_1712/', color: '#ffa116' },
+  { name: 'Email', icon: <Mail className="w-5 h-5" />, url: 'mailto:siddardhachiluveru@gmail.com', color: '#00f5ff' },
 ];
 
 const TerminalAnimation = () => {
@@ -69,7 +71,7 @@ const TerminalAnimation = () => {
 };
 
 export const ContactSection = () => {
-  const { toast } = useToast();
+  const { toast ,dismiss} = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -78,31 +80,56 @@ export const ContactSection = () => {
     message: '',
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+ const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+) => {
+  const { name, value } = e.target;
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+  setFormData((prev) => ({
+    ...prev,
+    ...(name === 'from_name' && { name: value }),
+    ...(name === 'from_email' && { email: value }),
+    ...(name === 'message' && { message: value }),
+  }));
+};
 
-    setIsSubmitting(false);
+const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
+const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  if (isSubmitting) return;
+  setIsSubmitting(true);
+
+  try {
+    await emailjs.sendForm(
+      'service_e5gnv9a',
+      'template_p9u22ig',
+      e.currentTarget,
+      'bkJfg-VDczGJb5s6u'
+    );
+
     setIsSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
 
     toast({
       title: 'Message sent!',
-      description: 'Thank you for reaching out. I\'ll get back to you soon.',
+      description: "Thanks for reaching out. I'll get back to you soon.",
     });
 
-    setTimeout(() => setIsSubmitted(false), 3000);
-  };
+    e.currentTarget.reset();
+    setFormData({ name: '', email: '', message: '' });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
+    setTimeout(() => setIsSubmitted(false), 3000);
+  } catch (error) {
+    console.error('EmailJS error:', error);
+    // ❌ no red toast
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
+
+
+
 
   return (
     <section className="py-20 md:py-32 px-4 relative overflow-hidden">
@@ -191,14 +218,15 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+           <form onSubmit={sendEmail} className="space-y-4">
+
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
                   Your Name
                 </label>
                 <input
                   type="text"
-                  name="name"
+                  name="from_name"
                   value={formData.name}
                   onChange={handleChange}
                   required
@@ -213,7 +241,7 @@ export const ContactSection = () => {
                 </label>
                 <input
                   type="email"
-                  name="email"
+                  name="from_email"
                   value={formData.email}
                   onChange={handleChange}
                   required

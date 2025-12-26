@@ -6,7 +6,7 @@ import { SkillsSection } from '@/components/sections/SkillsSection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
 import { AchievementsSection } from '@/components/sections/AchievementsSection';
 import { ResumeSection } from '@/components/sections/ResumeSection';
-import { DSASection } from '@/components/sections/DSASection';
+// import { DSASection } from '@/components/sections/DSASection';
 import { ContactSection } from '@/components/sections/ContactSection';
 
 const Index = () => {
@@ -39,9 +39,9 @@ const Index = () => {
           <ResumeSection />
         </section>
         
-        <section id="dsa">
+        {/* <section id="dsa">
           <DSASection />
-        </section>
+        </section> */}
         
         <section id="contact">
           <ContactSection />

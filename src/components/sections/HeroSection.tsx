@@ -132,7 +132,7 @@ export const HeroSection = () => {
           </div>
           <div className="text-center">
             <AnimatedCounter
-              target={10}
+              target={5}
               suffix="+"
               className="text-5xl md:text-6xl font-display font-bold text-foreground text-glow"
             />
@@ -155,15 +155,15 @@ export const HeroSection = () => {
           transition={{ delay: 1.2 }}
           className="flex flex-wrap justify-center gap-4 mb-16"
         >
-          <GlowingButton href="https://github.com" variant="primary" external>
+          <GlowingButton href="https://github.com/siddardha-CH" variant="primary" external>
             <Github className="w-5 h-5" />
             GitHub
           </GlowingButton>
-          <GlowingButton href="https://linkedin.com" variant="outline" external>
+          <GlowingButton href="https://www.linkedin.com/in/siddardha-ch-5baba0204/" variant="outline" external>
             <Linkedin className="w-5 h-5" />
             LinkedIn
           </GlowingButton>
-          <GlowingButton href="https://leetcode.com" variant="ghost" external>
+          <GlowingButton href="https://leetcode.com/u/siddardha_1712/" variant="ghost" external>
             <Code2 className="w-5 h-5" />
             LeetCode
           </GlowingButton>

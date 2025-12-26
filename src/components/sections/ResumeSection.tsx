@@ -31,14 +31,14 @@ const resumeItems: ResumeItem[] = [
     title: 'Academic Excellence',
     subtitle: 'B.Tech CSE',
     description: 'Pursuing Computer Science & Engineering at Anurag University, Hyderabad.',
-    period: '2021 - 2025',
+    period: '2022 - 2027',
   },
 ];
 
 const socialLinks = [
-  { name: 'GitHub', icon: <Github className="w-5 h-5" />, url: 'https://github.com', color: '#ffffff' },
-  { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, url: 'https://linkedin.com', color: '#0077b5' },
-  { name: 'LeetCode', icon: <Code2 className="w-5 h-5" />, url: 'https://leetcode.com', color: '#ffa116' },
+  { name: 'GitHub', icon: <Github className="w-5 h-5" />, url: 'https://github.com/Siddardha-CH', color: '#ffffff' },
+  { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, url: 'https://www.linkedin.com/in/siddardha-ch-5baba0204/', color: '#0077b5' },
+  { name: 'LeetCode', icon: <Code2 className="w-5 h-5" />, url: 'https://leetcode.com/u/siddardha_1712/', color: '#ffa116' },
 ];
 
 export const ResumeSection = () => {
@@ -119,10 +119,17 @@ export const ResumeSection = () => {
             </div>
 
             {/* Download button */}
-            <GlowingButton variant="primary" size="lg" className="w-full">
-              <Download className="w-5 h-5" />
-              Download Resume
-            </GlowingButton>
+            {/* View Resume */}
+<GlowingButton
+  variant="primary"
+  size="lg"
+  className="w-full"
+  onClick={() => window.open('/resume.pdf', '_blank')}
+>
+  <Download className="w-5 h-5" />
+  View Resume
+</GlowingButton>
+
           </motion.div>
 
           {/* Connect Section */}
@@ -170,9 +177,9 @@ export const ResumeSection = () => {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { label: 'LeetCode Rank', value: 'Top 10%' },
-                  { label: 'GitHub Streak', value: '100+ days' },
-                  { label: 'Projects', value: '10+' },
-                  { label: 'Languages', value: '5+' },
+                  { label: 'GitHub Streak', value: '200+ days' },
+                  { label: 'Projects', value: '5+' },
+                  { label: 'Languages', value: '3+' },
                 ].map((stat, i) => (
                   <motion.div
                     key={stat.label}

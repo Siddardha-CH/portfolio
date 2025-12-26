@@ -16,7 +16,7 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
   {
-    year: '2021 - 2025',
+    year: '2022 - 2027',
     title: 'B.Tech in Computer Science & Engineering',
     institution: 'Anurag University',
     location: 'Hyderabad, India',
@@ -26,20 +26,20 @@ const timelineData: TimelineItem[] = [
     details: ['Data Structures & Algorithms', 'Object-Oriented Programming', 'Database Management', 'Software Engineering'],
   },
   {
-    year: '2019 - 2021',
+    year: '2020 - 2022',
     title: 'Intermediate (MPC)',
-    institution: 'Junior College',
-    location: 'Telangana, India',
+    institution: 'Narayana Junior College',
+    location: 'Hyderabad, India',
     description: 'Completed intermediate education with focus on Mathematics, Physics, and Chemistry.',
     icon: <BookOpen className="w-6 h-6" />,
     color: 'secondary',
     details: ['Mathematics', 'Physics', 'Chemistry'],
   },
   {
-    year: '2019',
+    year: '2008 - 2020',
     title: 'Secondary Education',
-    institution: 'High School',
-    location: 'Telangana, India',
+    institution: 'Nalgonda Public School',
+    location: 'Nalgonda, India',
     description: 'Completed secondary education with strong foundation in science and mathematics.',
     icon: <GraduationCap className="w-6 h-6" />,
     color: 'accent',

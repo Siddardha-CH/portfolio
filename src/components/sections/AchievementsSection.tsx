@@ -22,14 +22,14 @@ const achievements: Achievement[] = [
   {
     icon: <Trophy className="w-8 h-8" />,
     title: 'Competitions',
-    value: 20,
+    value: 10,
     suffix: '+',
     description: 'Coding competitions and hackathons participated',
   },
   {
     icon: <Star className="w-8 h-8" />,
     title: 'GitHub Repos',
-    value: 15,
+    value: 12,
     suffix: '+',
     description: 'Open source projects and contributions',
   },
@@ -77,9 +77,9 @@ const AchievementBadge = ({ title, description, icon, delay }: BadgeProps) => {
 
 const LeetCodeProgress = () => {
   const difficulties = [
-    { label: 'Easy', solved: 200, total: 800 },
-    { label: 'Medium', solved: 250, total: 1700 },
-    { label: 'Hard', solved: 50, total: 750 },
+    { label: 'Easy', solved: 350, total: 800 },
+    { label: 'Medium', solved: 150, total: 1700 },
+    { label: 'Hard', solved: 10, total: 750 },
   ];
 
   return (
@@ -207,8 +207,8 @@ export const AchievementsSection = () => {
                 delay={0.1}
               />
               <AchievementBadge
-                title="Hard Crusher"
-                description="50+ hard problems"
+                title="Medium Crusher"
+                description="150+ Medium problems"
                 icon={<Award className="w-8 h-8" />}
                 delay={0.2}
               />
