@@ -159,7 +159,7 @@ export const HeroSection = () => {
             <Github className="w-5 h-5" />
             GitHub
           </GlowingButton>
-          <GlowingButton href="https://www.linkedin.com/in/siddardha-ch-5baba0204/" variant="outline" external>
+          <GlowingButton href="https://www.linkedin.com/in/siddardha-c-5baba0204/" variant="outline" external>
             <Linkedin className="w-5 h-5" />
             LinkedIn
           </GlowingButton>
