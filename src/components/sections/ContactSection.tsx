@@ -18,7 +18,7 @@ const terminalLines = [
 
 const contactLinks = [
   { name: 'GitHub', icon: <Github className="w-5 h-5" />, url: 'https://github.com/siddardha-CH', color: '#ffffff' },
-  { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, url: 'https://www.linkedin.com/in/siddardha-ch-5baba0204/', color: '#0077b5' },
+  { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, url: 'https://www.linkedin.com/in/siddardha-c-5baba0204/', color: '#0077b5' },
   { name: 'LeetCode', icon: <Code2 className="w-5 h-5" />, url: 'https://leetcode.com/u/siddardha_1712/', color: '#ffa116' },
   { name: 'Email', icon: <Mail className="w-5 h-5" />, url: 'mailto:siddardhachiluveru@gmail.com', color: '#00f5ff' },
 ];
