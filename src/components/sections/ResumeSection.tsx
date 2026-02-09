@@ -37,7 +37,7 @@ const resumeItems: ResumeItem[] = [
 
 const socialLinks = [
   { name: 'GitHub', icon: <Github className="w-5 h-5" />, url: 'https://github.com/Siddardha-CH', color: '#ffffff' },
-  { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, url: 'https://www.linkedin.com/in/siddardha-ch-5baba0204/', color: '#0077b5' },
+  { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, url: 'https://www.linkedin.com/in/siddardha-c-5baba0204/', color: '#0077b5' },
   { name: 'LeetCode', icon: <Code2 className="w-5 h-5" />, url: 'https://leetcode.com/u/siddardha_1712/', color: '#ffa116' },
 ];
 
