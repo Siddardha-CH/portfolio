@@ -6,6 +6,7 @@ import { EducationSection } from "@/components/sections/EducationSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { AchievementsSection } from "@/components/sections/AchievementsSection";
+import { LeetCodeSection } from "@/components/sections/LeetCodeSection";
 import { ResumeSection } from "@/components/sections/ResumeSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 
@@ -49,6 +50,11 @@ const Index = () => {
         {/* Projects */}
         <section id="projects">
           <ProjectsSection />
+        </section>
+
+        {/* LeetCode */}
+        <section id="leetcode">
+          <LeetCodeSection />
         </section>
 
         {/* Achievements */}

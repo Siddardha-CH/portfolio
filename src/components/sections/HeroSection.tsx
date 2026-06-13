@@ -124,7 +124,7 @@ export const HeroSection = () => {
         >
           <div className="text-center">
             <AnimatedCounter
-              target={500}
+              target={726}
               suffix="+"
               className="text-5xl md:text-6xl font-display font-bold text-foreground text-glow"
             />

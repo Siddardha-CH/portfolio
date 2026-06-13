@@ -13,21 +13,21 @@ interface Stage {
 const stages: Stage[] = [
   {
     level: 'Easy',
-    count: 200,
+    count: 425,
     color: '#10b981',
     bgColor: '#10b98115',
     algorithms: ['Arrays', 'Strings', 'Hash Tables', 'Two Pointers'],
   },
   {
     level: 'Medium',
-    count: 250,
+    count: 280,
     color: '#f59e0b',
     bgColor: '#f59e0b15',
     algorithms: ['Binary Search', 'Trees', 'Graphs', 'Dynamic Programming'],
   },
   {
     level: 'Hard',
-    count: 50,
+    count: 21,
     color: '#ef4444',
     bgColor: '#ef444415',
     algorithms: ['Advanced DP', 'Segment Trees', 'Graph Algorithms', 'Bit Manipulation'],

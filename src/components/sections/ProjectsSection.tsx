@@ -146,9 +146,37 @@ const ProjectCard = ({ project, onClick, index }: ProjectCardProps) => {
               <span className="px-2 py-1 text-xs rounded-md bg-muted text-muted-foreground">+{project.techStack.length - 4}</span>
             )}
           </div>
-          <div className="flex items-center gap-2 font-medium transition-colors" style={{ color: project.color }}>
-            <span>View Details</span>
-            <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          <div className="flex items-center gap-3 mt-2">
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all hover:scale-105"
+                style={{ backgroundColor: `${project.color}15`, color: project.color, border: `1px solid ${project.color}30` }}
+              >
+                <Github className="w-3.5 h-3.5" />
+                Code
+              </a>
+            )}
+            {project.demo && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all hover:scale-105"
+                style={{ backgroundColor: `${project.color}15`, color: project.color, border: `1px solid ${project.color}30` }}
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                Live Demo
+              </a>
+            )}
+            <span className="flex items-center gap-1.5 text-xs font-medium ml-auto transition-colors" style={{ color: project.color }}>
+              Details
+              <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </span>
           </div>
         </div>
       </motion.div>
