@@ -1,48 +1,39 @@
+# Siddardha Chiluveru — Portfolio
 
+> Personal portfolio showcasing full-stack projects, competitive programming achievements, and certifications.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-000000?logo=vercel)
 
-Follow these steps:
+## About
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Backend-leaning full-stack developer building Spring Boot APIs, React applications, and AI-powered products.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- AgentX Hackathon Runner-Up (Salesforce Finance Domain)
+- Salesforce Certified Agentforce Specialist
+- LeetCode Rating 1,628 | 700+ solved
+- TCS CodeVita Top 2% (872 / 50,000+)
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Featured Projects
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+| Project | Stack | Link |
+|---|---|---|
+| CodeRefine — AI Code Review | Spring Boot · PostgreSQL · React · Groq | [GitHub](https://github.com/Siddardha-CH/STRAM) |
+| Smart Attendance System | Spring Boot · PostgreSQL · React · face-api.js | [GitHub](https://github.com/Siddardha-CH/SmartAttendenceSystem) |
+| MSME Credit Assessment | Spring Boot · PostgreSQL · React | [GitHub](https://github.com/Siddardha-CH/msme-signal-score) |
+| DesignMate — AI Interview Partner | React · Groq · Vercel Serverless | [Live](https://designmate.vercel.app) · [GitHub](https://github.com/Siddardha-CH/designmate) |
+
+## Running Locally
+
+```bash
+npm install
 npm run dev
+# Opens at http://localhost:5173
 ```
 
-**Edit a file directly in GitHub**
+## Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```bash
+vercel --prod
+```
