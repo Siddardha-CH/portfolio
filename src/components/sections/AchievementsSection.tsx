@@ -1,150 +1,85 @@
 import { motion } from 'framer-motion';
-import { Trophy, Medal, Award, Target, Star, Zap } from 'lucide-react';
+import { Trophy, Star, Zap, Code2, GitBranch, Flame } from 'lucide-react';
 import { SectionTitle } from '@/components/ui/SectionTitle';
 import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 
-interface Achievement {
-  icon: React.ReactNode;
-  title: string;
-  value: number;
-  suffix: string;
-  description: string;
-}
-
-const achievements: Achievement[] = [
+const stats = [
   {
-    icon: <Target className="w-8 h-8" />,
-    title: 'LeetCode Problems',
-    value: 500,
-    suffix: '+',
-    description: 'Solved across Easy, Medium, and Hard difficulty',
+    icon: <Code2 className="w-8 h-8" />,
+    title: 'LeetCode Solved',
+    value: 726,
+    suffix: '',
+    description: 'Problems solved — Easy 425 · Med 280 · Hard 21',
+    color: '#f97316',
   },
   {
     icon: <Trophy className="w-8 h-8" />,
-    title: 'Competitions',
-    value: 10,
-    suffix: '+',
-    description: 'Coding competitions and hackathons participated',
+    title: 'Contest Rating',
+    value: 1657,
+    suffix: '',
+    description: 'Global rank 81,302 — Top 17.26%',
+    color: '#7c3aed',
   },
   {
-    icon: <Star className="w-8 h-8" />,
+    icon: <Flame className="w-8 h-8" />,
+    title: 'Max Streak',
+    value: 299,
+    suffix: ' days',
+    description: '363 active days in the past year',
+    color: '#ef4444',
+  },
+  {
+    icon: <GitBranch className="w-8 h-8" />,
     title: 'GitHub Repos',
     value: 12,
     suffix: '+',
-    description: 'Open source projects and contributions',
-  },
-  {
-    icon: <Zap className="w-8 h-8" />,
-    title: 'DSA Concepts',
-    value: 50,
-    suffix: '+',
-    description: 'Algorithms and data structures mastered',
+    description: 'Full-stack apps, open source, experiments',
+    color: '#10b981',
   },
 ];
 
-interface BadgeProps {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  delay: number;
-}
-
-const AchievementBadge = ({ title, description, icon, delay }: BadgeProps) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0, rotate: -180 }}
-      whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-      transition={{ delay, duration: 0.6, type: 'spring' }}
-      viewport={{ once: true }}
-      className="flex flex-col items-center text-center group"
-    >
-      <motion.div
-        className="w-20 h-20 rounded-full flex items-center justify-center mb-4 relative border border-foreground/20 text-foreground bg-foreground/5"
-        whileHover={{ scale: 1.1, rotate: 10 }}
-      >
-        {icon}
-        <motion.div
-          className="absolute inset-0 rounded-full border border-foreground/30"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0, 0.5] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        />
-      </motion.div>
-      <h4 className="font-display font-semibold text-foreground mb-1">{title}</h4>
-      <p className="text-sm text-muted-foreground">{description}</p>
-    </motion.div>
-  );
-};
-
-const LeetCodeProgress = () => {
-  const difficulties = [
-    { label: 'Easy', solved: 350, total: 800 },
-    { label: 'Medium', solved: 150, total: 1700 },
-    { label: 'Hard', solved: 10, total: 750 },
-  ];
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="glass rounded-sm p-6 md:p-8"
-    >
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-12 h-12 rounded-sm bg-foreground/10 flex items-center justify-center border border-foreground/20">
-          <Target className="w-6 h-6 text-foreground" />
-        </div>
-        <div>
-          <h3 className="text-xl font-display font-bold text-foreground tracking-wider">LEETCODE JOURNEY</h3>
-          <p className="text-sm text-muted-foreground">Problem Solving Progress</p>
-        </div>
-      </div>
-
-      <div className="text-center mb-8">
-        <AnimatedCounter
-          target={500}
-          suffix="+"
-          className="text-6xl font-display font-bold text-foreground text-glow"
-        />
-        <p className="text-muted-foreground mt-2">Total Problems Solved</p>
-      </div>
-
-      <div className="space-y-4">
-        {difficulties.map((diff, i) => (
-          <motion.div
-            key={diff.label}
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: i * 0.1 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex justify-between text-sm mb-1">
-              <span className="font-semibold text-foreground">
-                {diff.label}
-              </span>
-              <span className="text-muted-foreground font-mono">
-                {diff.solved} / {diff.total}
-              </span>
-            </div>
-            <div className="h-2 bg-muted rounded-full overflow-hidden">
-              <motion.div
-                className="h-full rounded-full bg-foreground"
-                initial={{ width: 0 }}
-                whileInView={{ width: `${(diff.solved / diff.total) * 100}%` }}
-                transition={{ duration: 1, delay: i * 0.1 }}
-                viewport={{ once: true }}
-              />
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </motion.div>
-  );
-};
+const highlights = [
+  {
+    icon: <Trophy className="w-7 h-7" />,
+    title: 'Top 17.26% Global',
+    description: 'LeetCode contest percentile — consistently improving',
+    color: '#f97316',
+  },
+  {
+    icon: <Zap className="w-7 h-7" />,
+    title: '299-Day Streak',
+    description: 'Daily problem solving habit, max streak maintained',
+    color: '#eab308',
+  },
+  {
+    icon: <Star className="w-7 h-7" />,
+    title: '4 Full-Stack Projects',
+    description: 'Spring Boot + React + PostgreSQL production apps',
+    color: '#7c3aed',
+  },
+  {
+    icon: <Code2 className="w-7 h-7" />,
+    title: 'AI Integrations',
+    description: 'Groq Llama 3.3 70B in CodeRefine & DesignMate',
+    color: '#f55036',
+  },
+  {
+    icon: <GitBranch className="w-7 h-7" />,
+    title: 'Spring Boot Expert',
+    description: 'JWT auth, RBAC, JPA, REST APIs across 3 projects',
+    color: '#6db33f',
+  },
+  {
+    icon: <Flame className="w-7 h-7" />,
+    title: '1,275 Submissions',
+    description: 'Consistent code submissions in the past year',
+    color: '#22d3ee',
+  },
+];
 
 export const AchievementsSection = () => {
   return (
     <section className="py-20 md:py-32 px-4 relative overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-foreground/3 rounded-full blur-3xl" />
       </div>
@@ -152,68 +87,66 @@ export const AchievementsSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionTitle
           accent="Achievements"
-          title="Milestones Unlocked"
-          subtitle="Celebrating consistency, growth, and continuous learning"
+          title="Milestones"
+          subtitle="Real numbers — contest performance, streaks, and projects shipped"
         />
 
         {/* Stats Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {achievements.map((achievement, i) => (
+          {stats.map((s, i) => (
             <motion.div
-              key={achievement.title}
+              key={s.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="glass rounded-sm p-6 text-center group hover:glow-white-soft transition-all duration-300 border border-foreground/10"
+              className="glass rounded-2xl p-6 text-center group hover:scale-[1.02] transition-transform duration-300"
+              style={{ boxShadow: `0 0 0 1px ${s.color}20` }}
             >
-              <div className="w-14 h-14 rounded-sm flex items-center justify-center mx-auto mb-4 bg-foreground/5 text-foreground border border-foreground/20">
-                {achievement.icon}
+              <div
+                className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4"
+                style={{ backgroundColor: `${s.color}15`, color: s.color }}
+              >
+                {s.icon}
               </div>
               <AnimatedCounter
-                target={achievement.value}
-                suffix={achievement.suffix}
+                target={s.value}
+                suffix={s.suffix}
                 className="text-4xl font-display font-bold text-foreground"
                 duration={2}
               />
-              <h4 className="font-display font-semibold text-foreground mt-2 mb-1 tracking-wider">
-                {achievement.title.toUpperCase()}
+              <h4 className="font-display font-semibold text-foreground mt-2 mb-1 text-sm tracking-wide uppercase">
+                {s.title}
               </h4>
-              <p className="text-sm text-muted-foreground">{achievement.description}</p>
+              <p className="text-xs text-muted-foreground">{s.description}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* LeetCode Progress & Badges */}
-        <div className="grid lg:grid-cols-2 gap-8 items-start">
-          <LeetCodeProgress />
-
-          {/* Achievement Badges */}
-          <div className="glass rounded-sm p-6 md:p-8">
-            <h3 className="text-xl font-display font-bold text-foreground mb-6 text-center tracking-wider">
-              BADGES EARNED
-            </h3>
-            <div className="grid grid-cols-3 gap-6">
-              <AchievementBadge
-                title="Problem Solver"
-                description="500+ problems"
-                icon={<Medal className="w-8 h-8" />}
-                delay={0}
-              />
-              <AchievementBadge
-                title="Consistent"
-                description="Daily practice"
-                icon={<Zap className="w-8 h-8" />}
-                delay={0.1}
-              />
-              <AchievementBadge
-                title="Medium Crusher"
-                description="150+ Medium problems"
-                icon={<Award className="w-8 h-8" />}
-                delay={0.2}
-              />
-            </div>
-          </div>
+        {/* Highlights Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {highlights.map((h, i) => (
+            <motion.div
+              key={h.title}
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: i * 0.08, type: 'spring' }}
+              viewport={{ once: true }}
+              className="glass rounded-2xl p-5 flex items-start gap-4 group hover:scale-[1.02] transition-transform duration-200"
+              style={{ boxShadow: `0 0 0 1px ${h.color}15` }}
+            >
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
+                style={{ backgroundColor: `${h.color}15`, color: h.color }}
+              >
+                {h.icon}
+              </div>
+              <div>
+                <h4 className="font-display font-semibold text-foreground mb-1">{h.title}</h4>
+                <p className="text-sm text-muted-foreground">{h.description}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
