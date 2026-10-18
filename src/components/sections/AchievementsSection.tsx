@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Trophy, Star, Zap, Code2, GitBranch, Flame } from 'lucide-react';
+import { Trophy, Star, Zap, Code2, Flame, Award, TrendingUp } from 'lucide-react';
 import { SectionTitle } from '@/components/ui/SectionTitle';
 import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 
@@ -7,72 +7,72 @@ const stats = [
   {
     icon: <Code2 className="w-8 h-8" />,
     title: 'LeetCode Solved',
-    value: 726,
-    suffix: '',
-    description: 'Problems solved — Easy 425 · Med 280 · Hard 21',
+    value: 880,
+    suffix: '+',
+    description: 'Easy 462 · Medium 381 · Hard 38',
     color: '#f97316',
   },
   {
     icon: <Trophy className="w-8 h-8" />,
-    title: 'Contest Rating',
-    value: 1657,
+    title: 'CodeVita Global Rank',
+    value: 873,
     suffix: '',
-    description: 'Global rank 81,302 — Top 17.26%',
+    description: 'TCS CodeVita Season 13, out of 50,000+ · College Topper',
     color: '#7c3aed',
   },
   {
-    icon: <Flame className="w-8 h-8" />,
-    title: 'Max Streak',
-    value: 299,
-    suffix: ' days',
-    description: '363 active days in the past year',
-    color: '#ef4444',
+    icon: <TrendingUp className="w-8 h-8" />,
+    title: 'Contest Rating',
+    value: 1667,
+    suffix: '',
+    description: 'LeetCode, across 65 contests',
+    color: '#22d3ee',
   },
   {
-    icon: <GitBranch className="w-8 h-8" />,
-    title: 'GitHub Repos',
-    value: 12,
-    suffix: '+',
-    description: 'Full-stack apps, open source, experiments',
-    color: '#10b981',
+    icon: <Flame className="w-8 h-8" />,
+    title: 'Day Streak Badge',
+    value: 500,
+    suffix: '',
+    description: '9 LeetCode badges in total',
+    color: '#ef4444',
   },
 ];
 
 const highlights = [
   {
     icon: <Trophy className="w-7 h-7" />,
-    title: 'Top 17.26% Global',
-    description: 'LeetCode contest percentile — consistently improving',
-    color: '#f97316',
-  },
-  {
-    icon: <Zap className="w-7 h-7" />,
-    title: '299-Day Streak',
-    description: 'Daily problem solving habit, max streak maintained',
+    title: 'AGENTX Hackathon Runner-Up',
+    description: 'Finance domain, AI Loan Status Agent on Salesforce Agentforce (team of 3)',
     color: '#eab308',
   },
   {
     icon: <Star className="w-7 h-7" />,
-    title: '4 Full-Stack Projects',
-    description: 'Spring Boot + React + PostgreSQL production apps',
+    title: 'CodeVita College Topper',
+    description: 'TCS CodeVita Season 13 (2025), Global Rank 873 / 50,000+',
     color: '#7c3aed',
   },
   {
-    icon: <Code2 className="w-7 h-7" />,
-    title: 'AI Integrations',
-    description: 'Groq Llama 3.3 70B in CodeRefine & DesignMate',
-    color: '#f55036',
+    icon: <Award className="w-7 h-7" />,
+    title: 'Salesforce Agentforce Specialist',
+    description: 'Salesforce Certified, Dec 2025 (ID 7278025)',
+    color: '#00a1e0',
   },
   {
-    icon: <GitBranch className="w-7 h-7" />,
-    title: 'Spring Boot Expert',
-    description: 'JWT auth, RBAC, JPA, REST APIs across 3 projects',
-    color: '#6db33f',
+    icon: <Award className="w-7 h-7" />,
+    title: 'OCI AI Foundations Associate',
+    description: 'Oracle Cloud Infrastructure 2025 Certified, Sep 2025',
+    color: '#f80000',
   },
   {
-    icon: <Flame className="w-7 h-7" />,
-    title: '1,275 Submissions',
-    description: 'Consistent code submissions in the past year',
+    icon: <Award className="w-7 h-7" />,
+    title: 'DSA in Java',
+    description: 'Udemy certificate, Oct 2025',
+    color: '#a435f0',
+  },
+  {
+    icon: <Zap className="w-7 h-7" />,
+    title: '384 Solutions Shared',
+    description: 'LeetCode write-ups with 29.2K views',
     color: '#22d3ee',
   },
 ];
@@ -88,7 +88,7 @@ export const AchievementsSection = () => {
         <SectionTitle
           accent="Achievements"
           title="Milestones"
-          subtitle="Real numbers — contest performance, streaks, and projects shipped"
+          subtitle="Competitive programming, hackathons, and certifications"
         />
 
         {/* Stats Grid */}

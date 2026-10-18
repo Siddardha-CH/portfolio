@@ -14,24 +14,24 @@ interface ResumeItem {
 const resumeItems: ResumeItem[] = [
   {
     icon: <Briefcase className="w-5 h-5" />,
-    title: 'Software Development',
-    subtitle: 'Full Stack Developer',
-    description: 'Building robust web applications with Java, Spring Boot, and modern frontend technologies.',
-    period: 'Present',
+    title: 'Web Development Intern',
+    subtitle: 'Labmentix Pvt. Ltd. (Remote)',
+    description: 'One-month internship. Fixed UI responsiveness and layout issues on the company platform and delivered assigned tasks with the team.',
+    period: 'Sep - Oct 2025',
   },
   {
     icon: <Code2 className="w-5 h-5" />,
     title: 'Problem Solving',
     subtitle: 'DSA Enthusiast',
-    description: '500+ problems solved on LeetCode, focusing on algorithms and data structures.',
+    description: '880+ LeetCode problems, 1,667 contest rating. TCS CodeVita Season 13 Global Rank 873 of 50,000+ and College Topper.',
     period: 'Ongoing',
   },
   {
     icon: <Award className="w-5 h-5" />,
     title: 'Academic Excellence',
     subtitle: 'B.Tech CSE',
-    description: 'Pursuing Computer Science & Engineering at Anurag University, Hyderabad.',
-    period: '2022 - 2027',
+    description: 'Computer Science & Engineering at Anurag University, Hyderabad. CGPA 7.5 / 10.',
+    period: '2023 - 2027',
   },
 ];
 
@@ -74,16 +74,15 @@ export const ResumeSection = () => {
               </div>
               <div>
                 <h3 className="text-2xl font-display font-bold text-foreground">Siddardha Chiluveru</h3>
-                <p className="text-muted-foreground">Software Developer</p>
+                <p className="text-muted-foreground">Backend / Software Engineer · Class of 2027</p>
               </div>
             </div>
 
             {/* Summary */}
             <p className="text-muted-foreground mb-8">
-              Passionate Computer Science student with a strong foundation in full-stack development and 
-              problem-solving. Experienced in building scalable applications using Java, Spring Boot, and 
-              modern web technologies. Committed to writing clean, efficient code and continuously learning 
-              new technologies.
+              Final-year CS student from Hyderabad who builds secure Java and Spring Boot backends (REST, JWT,
+              PostgreSQL, tests, CI) and works AI-natively while verifying what ships. Looking for SDE internships
+              and entry-level backend roles.
             </p>
 
             {/* Resume items */}
@@ -176,10 +175,10 @@ export const ResumeSection = () => {
               <h3 className="text-xl font-display font-bold text-foreground mb-6">Quick Stats</h3>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { label: 'LeetCode Rank', value: 'Top 10%' },
-                  { label: 'GitHub Streak', value: '200+ days' },
-                  { label: 'Projects', value: '5+' },
-                  { label: 'Languages', value: '3+' },
+                  { label: 'LeetCode Solved', value: '880+' },
+                  { label: 'CodeVita Rank', value: '#873' },
+                  { label: 'Contest Rating', value: '1,667' },
+                  { label: 'AGENTX', value: 'Runner-Up' },
                 ].map((stat, i) => (
                   <motion.div
                     key={stat.label}

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Brain, Camera, Code2, Layout, ChevronRight, X } from 'lucide-react';
+import { ExternalLink, Github, Brain, Camera, Code2, Layout, ChevronRight, X, ShieldCheck, Bot } from 'lucide-react';
 import { SectionTitle } from '@/components/ui/SectionTitle';
 import { GlowingButton } from '@/components/ui/GlowingButton';
 
@@ -14,6 +14,7 @@ interface Project {
   techStack: string[];
   icon: React.ReactNode;
   color: string;
+  badge?: string;
   github?: string;
   demo?: string;
   features: string[];
@@ -22,83 +23,121 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'CodeRefine — AI Code Review',
-    subtitle: 'AI-Powered Developer Tool',
-    description: 'Full-stack platform where users submit code and receive an AI-powered analysis: quality score, severity-bucketed vulnerabilities, refactored code, and a code converter — all in real time.',
-    problem: 'Developers lack fast, actionable feedback on code quality without waiting for peer reviews or running static analysis tools.',
-    solution: 'Built a Spring Boot + PostgreSQL backend with JWT auth and a Groq (Llama 3.3 70B) AI pipeline. React frontend streams results with animated score rings and collapsible issue cards.',
-    techStack: ['Spring Boot', 'PostgreSQL', 'React', 'TypeScript', 'Groq AI', 'JWT', 'Tailwind CSS'],
-    icon: <Code2 className="w-8 h-8" />,
-    color: '#7c3aed',
-    github: 'https://github.com/Siddardha-CH/STRAM',
+    title: 'CreditSense — Explainable MSME Credit Risk',
+    subtitle: 'Fintech · Team of 3 · 2026',
+    badge: 'Featured',
+    description: 'Compliance-first credit-risk platform for MSME lending. A rule-based eligibility gate runs ahead of ML scoring, and every decision is explainable and recorded in an append-only audit trail.',
+    problem: 'Credit models for small businesses are often black boxes, and lenders need to show why a decision was made and prove nobody changed the record afterwards.',
+    solution: 'I owned the security and reliability side of the Spring Boot backend: JWT authentication with rotating refresh tokens, an append-only audit trail, backend tests and CI. I also co-authored the IEEE-format paper. Runs on simulated data.',
+    techStack: ['Java 21', 'Spring Boot 3.5', 'PostgreSQL', 'Docker', 'React'],
+    icon: <ShieldCheck className="w-8 h-8" />,
+    color: '#10b981',
+    github: 'https://github.com/CreditSense-s/CreditSense',
+    demo: 'https://creditsense-seven.vercel.app',
     features: [
-      'AI quality score (0–100) with animated ring',
-      'Issue breakdown: Critical / High / Medium / Low',
-      'Full code refactor by Llama 3.3 70B',
-      'Code converter across 7 languages',
-      'JWT auth + review history',
-      'Spring Boot + PostgreSQL backend',
+      'Rule-based compliance gate before ML scoring',
+      'Explainable, per-decision risk breakdown',
+      'JWT auth with rotating refresh tokens',
+      'Append-only audit trail',
+      'Backend tests + CI pipeline',
+      'IEEE-format paper (co-author)',
     ],
   },
   {
     id: 2,
-    title: 'Smart Attendance System',
-    subtitle: 'Computer Vision Platform',
-    description: 'Full-stack attendance platform with real-time face recognition in the browser. Spring Boot REST backend with 3-role RBAC; teachers enroll faces and run live scanning via webcam.',
-    problem: 'Manual attendance is time-consuming and prone to proxy fraud, with no easy audit trail across multiple institutes.',
-    solution: 'Used face-api.js to run recognition client-side (no server uploads), backed by 14 Spring Boot REST endpoints and JWT-protected roles.',
-    techStack: ['Spring Boot', 'PostgreSQL', 'React', 'TypeScript', 'face-api.js', 'JWT', 'Tailwind CSS'],
+    title: 'SmartAttend — Smart Attendance System',
+    subtitle: 'Computer Vision · Solo · 2025',
+    description: 'Live webcam attendance with face recognition running in the browser. Spring Boot REST API on PostgreSQL with three roles enforced server-side and Excel report export.',
+    problem: 'Manual attendance is slow and open to proxy marking, with no easy audit trail or reporting.',
+    solution: 'Built solo. face-api.js runs recognition client-side, the Spring Boot API handles data and roles, and auth uses BCrypt with HMAC-signed session tokens.',
+    techStack: ['Java 17', 'Spring Boot 3.5', 'PostgreSQL', 'React', 'face-api.js'],
     icon: <Camera className="w-8 h-8" />,
     color: '#d946ef',
     github: 'https://github.com/Siddardha-CH/SmartAttendenceSystem',
+    demo: 'https://smartattend-frontend-q97p.onrender.com',
     features: [
-      'Real-time browser-side face recognition',
-      '3-role RBAC: Admin / Teacher / Viewer',
-      '14 REST endpoints across 7 controllers',
-      'Multi-institute & multi-class management',
-      'Excel report export',
-      'Deployed on Render + Vercel',
+      'In-browser face recognition (face-api.js)',
+      '3 roles: Admin / Teacher / Viewer (server-side)',
+      'BCrypt + HMAC-signed session tokens',
+      '.xlsx attendance reports',
+      '11 backend API tests + CI',
+      'Deployed on Render',
     ],
   },
   {
     id: 3,
-    title: 'MSME Credit Assessment',
-    subtitle: 'Fintech Scoring Engine',
-    description: 'Loan-screening platform that scores MSMEs (0–100) using 10 alternative financial signals — GST compliance, UPI frequency, ITR filing — replacing the need for formal bureau data.',
-    problem: 'Millions of small businesses in India are credit-invisible despite strong business fundamentals, blocked from formal loans.',
-    solution: 'Built a Spring Boot scoring engine with weighted factor analysis, role-based API (admin/analyst/viewer), and a React dashboard for lenders.',
-    techStack: ['Spring Boot', 'PostgreSQL', 'React', 'TypeScript', 'JWT', 'Tailwind CSS'],
-    icon: <Brain className="w-8 h-8" />,
-    color: '#f97316',
-    github: 'https://github.com/Siddardha-CH/msme-signal-score',
+    title: 'CodeRefine — AI Code Review',
+    subtitle: 'AI Developer Tool · Feb 2026',
+    description: 'Users submit code and get an AI quality score with severity-bucketed issues, powered by prompt-engineered Groq API calls behind a Spring Boot backend.',
+    problem: 'Developers want fast, actionable feedback on code quality without waiting for a peer review.',
+    solution: 'Spring Boot backend with OAuth2 + JWT, JPA persistence on SQLite and unit tests; structured prompts to the Groq API return a score and issues grouped by severity.',
+    techStack: ['Spring Boot', 'Groq API', 'SQLite', 'OAuth2', 'JWT', 'React'],
+    icon: <Code2 className="w-8 h-8" />,
+    color: '#7c3aed',
+    github: 'https://github.com/Siddardha-CH/STRAM',
     features: [
-      '10-factor deterministic scoring engine',
-      'Credit grades A–F with per-factor breakdown',
-      'Role-based access: admin / analyst / viewer',
-      'JUnit tests on service and scoring layers',
-      'Spring Boot + PostgreSQL backend',
-      'GSTIN-based business lookup',
+      'AI quality score for submitted code',
+      'Issues bucketed by severity',
+      'Prompt-engineered Groq API calls',
+      'OAuth2 + JWT authentication',
+      'JPA persistence (SQLite)',
+      'Unit tests',
     ],
   },
   {
     id: 4,
-    title: 'DesignMate — AI Interview Partner',
-    subtitle: 'AI Learning Tool',
-    description: 'AI web app for system design interview practice. Three modes — Practice, Learn, Design — streaming responses token-by-token via SSE. API key secured behind a Vercel serverless proxy.',
-    problem: 'System design interviews require structured practice that goes beyond reading articles — candidates need interactive, guided sessions.',
-    solution: 'Built a React + TypeScript chat UI with Framer Motion animations; Groq Llama 3.3 70B responds in three structured modes; deployed live on Vercel.',
-    techStack: ['React 18', 'TypeScript', 'Groq API', 'Vercel Serverless', 'Framer Motion', 'Tailwind CSS'],
+    title: 'DesignMate — AI Interview Practice',
+    subtitle: 'AI Learning Tool · Solo · 2026',
+    description: 'Three-mode interview practice app that streams LLM output token by token over SSE through a serverless proxy, so the API key never reaches the browser.',
+    problem: 'Interview prep needs interactive, guided practice, not just reading articles.',
+    solution: 'Built and deployed solo. Rebuilt the core flows by hand after an AI-generated scaffold proved unfit. Used by a small group of outside users.',
+    techStack: ['React 18', 'Groq API', 'Vercel Serverless', 'SSE'],
     icon: <Layout className="w-8 h-8" />,
     color: '#22d3ee',
     github: 'https://github.com/Siddardha-CH/designmate',
-    demo: 'https://designmate.vercel.app',
+    demo: 'https://designmate-delta.vercel.app',
     features: [
-      'Practice mode: mock interviewer with follow-ups',
-      'Learn mode: structured concept explainer',
-      'Design mode: requirements → HLD → schema → scaling',
-      'Token-by-token streaming via SSE',
-      'API key secured in Vercel serverless function',
-      'Live deployment on Vercel',
+      '3 practice modes',
+      'Token-by-token streaming over SSE',
+      'API key kept server-side in a serverless proxy',
+      'Core flows rebuilt by hand',
+      'Live on Vercel',
+      'Used by outside users',
+    ],
+  },
+  {
+    id: 5,
+    title: 'AI Loan Status Agent',
+    subtitle: 'AGENTX Hackathon · Team of 3 · 2025',
+    badge: 'Runner-Up',
+    description: 'Conversational loan-status agent built on Salesforce Agentforce. Runner-up in the finance domain at the AGENTX Hackathon.',
+    problem: 'An LLM answering loan questions can invent figures, which is unacceptable for financial data.',
+    solution: 'Agentforce handles the conversation while a separate Apex class does deterministic data lookups, so the LLM never makes up loan data.',
+    techStack: ['Salesforce Agentforce', 'Apex', 'Data Cloud'],
+    icon: <Bot className="w-8 h-8" />,
+    color: '#eab308',
+    features: [
+      'Runner-up, finance domain (AGENTX)',
+      'Agentforce conversation layer',
+      'Deterministic Apex data lookups',
+      'No LLM-invented loan data',
+    ],
+  },
+  {
+    id: 6,
+    title: 'MSME Credit Assessment System',
+    subtitle: 'Backend · Fintech',
+    description: 'Spring Boot backend for assessing MSME creditworthiness, backed by MySQL and tested with JUnit.',
+    problem: 'Small businesses are often hard to assess with traditional credit data alone.',
+    solution: 'A Java + Spring Boot service with MySQL persistence and JUnit tests for the assessment logic.',
+    techStack: ['Java', 'Spring Boot', 'MySQL', 'JUnit'],
+    icon: <Brain className="w-8 h-8" />,
+    color: '#f97316',
+    github: 'https://github.com/Siddardha-CH/Manager-AI',
+    features: [
+      'Spring Boot REST backend',
+      'MySQL persistence',
+      'JUnit-tested assessment logic',
     ],
   },
 ];
@@ -134,6 +173,14 @@ const ProjectCard = ({ project, onClick, index }: ProjectCardProps) => {
         >
           {project.icon}
         </div>
+        {project.badge && (
+          <span
+            className="absolute top-6 right-6 px-2.5 py-1 rounded-full text-xs font-mono uppercase tracking-wider"
+            style={{ backgroundColor: `${project.color}20`, color: project.color, border: `1px solid ${project.color}40` }}
+          >
+            {project.badge}
+          </span>
+        )}
         <div className="relative z-10">
           <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">{project.subtitle}</span>
           <h3 className="text-2xl font-display font-bold text-foreground mt-1 mb-3">{project.title}</h3>
@@ -297,7 +344,7 @@ export const ProjectsSection = () => {
         <SectionTitle
           accent="Projects"
           title="What I've Built"
-          subtitle="Full-stack applications with Spring Boot backends, React frontends, and AI integrations"
+          subtitle="Secure Spring Boot backends, AI integrations, and a hackathon runner-up Salesforce agent"
         />
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {projects.map((project, index) => (

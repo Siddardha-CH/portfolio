@@ -2,53 +2,56 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SectionTitle } from '@/components/ui/SectionTitle';
 
+type Level = 'Strong' | 'Working' | 'Beginner';
+
 interface Skill {
   name: string;
-  category: 'Languages' | 'Backend' | 'Frontend' | 'Database' | 'Tools' | 'Core';
-  proficiency: number;
+  category: 'Languages' | 'Backend' | 'Database' | 'AI & Platforms' | 'Tools' | 'Core';
+  level: Level;
   color: string;
   description: string;
 }
 
+const levelWidth: Record<Level, number> = { Strong: 90, Working: 65, Beginner: 30 };
+
 const skillsData: Skill[] = [
   // Languages
-  { name: 'Java', category: 'Languages', proficiency: 90, color: '#f89820', description: 'Primary backend language — Spring Boot + DSA' },
-  { name: 'TypeScript', category: 'Languages', proficiency: 80, color: '#3178c6', description: 'All React frontends written in TypeScript' },
-  { name: 'Python', category: 'Languages', proficiency: 78, color: '#3776ab', description: 'Scripting, data processing, ML experiments' },
-  { name: 'JavaScript', category: 'Languages', proficiency: 78, color: '#f7df1e', description: 'Web interactivity and serverless functions' },
-  { name: 'C', category: 'Languages', proficiency: 65, color: '#00599c', description: 'Systems programming fundamentals' },
+  { name: 'Java', category: 'Languages', level: 'Strong', color: '#f89820', description: 'Primary language for backends and DSA' },
+  { name: 'SQL', category: 'Languages', level: 'Strong', color: '#00758f', description: 'Joins, constraints, schema design' },
+  { name: 'JavaScript', category: 'Languages', level: 'Working', color: '#f7df1e', description: 'Frontends and serverless functions in projects' },
+  { name: 'Python', category: 'Languages', level: 'Beginner', color: '#3776ab', description: 'Coursework level' },
 
   // Backend
-  { name: 'Spring Boot', category: 'Backend', proficiency: 88, color: '#6db33f', description: 'Production REST APIs with Security + JPA' },
-  { name: 'Spring Security', category: 'Backend', proficiency: 82, color: '#5a9e3a', description: 'JWT auth, BCrypt, RBAC with @PreAuthorize' },
-  { name: 'JPA / Hibernate', category: 'Backend', proficiency: 82, color: '#59666c', description: 'ORM, entity relations, query optimization' },
-  { name: 'REST APIs', category: 'Backend', proficiency: 88, color: '#00f5ff', description: 'RESTful design, pagination, error handling' },
-  { name: 'Groq AI', category: 'Backend', proficiency: 75, color: '#f55036', description: 'Llama 3.3 70B integration for AI features' },
-
-  // Frontend
-  { name: 'React 18', category: 'Frontend', proficiency: 82, color: '#61dafb', description: 'Hooks, context, component architecture' },
-  { name: 'Tailwind CSS', category: 'Frontend', proficiency: 85, color: '#06b6d4', description: 'Utility-first responsive UI across all projects' },
-  { name: 'Framer Motion', category: 'Frontend', proficiency: 78, color: '#ff0055', description: 'Page transitions, scroll animations, gestures' },
-  { name: 'Vite', category: 'Frontend', proficiency: 80, color: '#646cff', description: 'Fast dev server + build toolchain' },
-  { name: 'HTML / CSS', category: 'Frontend', proficiency: 90, color: '#e34f26', description: 'Semantic markup, layouts, responsive design' },
+  { name: 'Spring Boot', category: 'Backend', level: 'Strong', color: '#6db33f', description: 'REST APIs in CreditSense, SmartAttend, CodeRefine' },
+  { name: 'Spring Data JPA', category: 'Backend', level: 'Strong', color: '#59666c', description: 'Entities, repositories, relations' },
+  { name: 'REST API Design', category: 'Backend', level: 'Strong', color: '#00f5ff', description: 'Resource design, validation, error handling' },
+  { name: 'JWT / OAuth2', category: 'Backend', level: 'Strong', color: '#5a9e3a', description: 'Rotating refresh tokens, OAuth2 login, RBAC' },
+  { name: 'JUnit / API Testing', category: 'Backend', level: 'Strong', color: '#25a162', description: 'Backend tests wired into CI' },
 
   // Database
-  { name: 'PostgreSQL', category: 'Database', proficiency: 84, color: '#336791', description: 'Primary database across all Spring Boot projects' },
-  { name: 'SQL', category: 'Database', proficiency: 85, color: '#00758f', description: 'Joins, indexing, query optimisation' },
+  { name: 'PostgreSQL', category: 'Database', level: 'Strong', color: '#336791', description: 'CreditSense and SmartAttend' },
+  { name: 'MySQL', category: 'Database', level: 'Strong', color: '#00758f', description: 'MSME Credit Assessment System' },
+  { name: 'SQLite', category: 'Database', level: 'Working', color: '#0f80cc', description: 'CodeRefine persistence' },
+
+  // AI & Platforms
+  { name: 'Groq / LLM APIs', category: 'AI & Platforms', level: 'Working', color: '#f55036', description: 'Streaming and structured prompts in CodeRefine, DesignMate' },
+  { name: 'Prompt Engineering', category: 'AI & Platforms', level: 'Working', color: '#ec4899', description: 'Structured output, severity bucketing' },
+  { name: 'Salesforce Agentforce + Apex', category: 'AI & Platforms', level: 'Working', color: '#00a1e0', description: 'AGENTX runner-up loan agent; certified specialist' },
+  { name: 'Vercel / Render', category: 'AI & Platforms', level: 'Working', color: '#a3a3a3', description: 'Deploying live projects' },
 
   // Tools
-  { name: 'Git', category: 'Tools', proficiency: 88, color: '#f05032', description: 'Branching, rebasing, collaborative workflow' },
-  { name: 'Maven', category: 'Tools', proficiency: 82, color: '#c71a36', description: 'Dependency management and build lifecycle' },
-  { name: 'Linux', category: 'Tools', proficiency: 72, color: '#fcc624', description: 'CLI, shell scripting, process management' },
+  { name: 'Git / GitHub', category: 'Tools', level: 'Strong', color: '#f05032', description: 'Branching, pull requests, CI' },
+  { name: 'Postman', category: 'Tools', level: 'Working', color: '#ff6c37', description: 'API testing and debugging' },
+  { name: 'IntelliJ IDEA', category: 'Tools', level: 'Working', color: '#fe315d', description: 'Primary Java IDE' },
+  { name: 'Claude Code / Cursor / Codex', category: 'Tools', level: 'Working', color: '#d97757', description: 'AI-assisted workflow, verified through tests and debugging' },
 
   // Core CS
-  { name: 'DSA', category: 'Core', proficiency: 90, color: '#8b5cf6', description: '726 problems solved on LeetCode — Top 17%' },
-  { name: 'OOP', category: 'Core', proficiency: 90, color: '#ec4899', description: 'SOLID principles, design patterns, clean code' },
-  { name: 'System Design', category: 'Core', proficiency: 72, color: '#f97316', description: 'HLD, scalability, caching, distributed systems' },
+  { name: 'DSA', category: 'Core', level: 'Strong', color: '#8b5cf6', description: '880+ LeetCode problems, CodeVita Global Rank 873' },
+  { name: 'OOP', category: 'Core', level: 'Strong', color: '#ec4899', description: 'Clean, layered Java design' },
 ];
 
 const categories: ('All' | Skill['category'])[] = [
-  'All', 'Languages', 'Backend', 'Frontend', 'Database', 'Tools', 'Core',
+  'All', 'Languages', 'Backend', 'Database', 'AI & Platforms', 'Tools', 'Core',
 ];
 
 export const SkillsSection = () => {
@@ -65,7 +68,7 @@ export const SkillsSection = () => {
         <SectionTitle
           accent="Skills"
           title="Tech Stack"
-          subtitle="Languages, frameworks, and tools I use across backend, frontend, and infrastructure"
+          subtitle="Honest levels: what I use daily, what I have shipped with, and what I am still learning"
         />
 
         {/* Category Filters */}
@@ -113,7 +116,7 @@ export const SkillsSection = () => {
                       {skill.category}
                     </span>
                   </div>
-                  <span className="font-mono text-sm text-primary">{skill.proficiency}%</span>
+                  <span className="font-mono text-sm text-primary">{skill.level}</span>
                 </div>
 
                 <div className="h-2 bg-muted rounded-full overflow-hidden">
@@ -121,7 +124,7 @@ export const SkillsSection = () => {
                     className="h-full rounded-full"
                     style={{ backgroundColor: skill.color }}
                     initial={{ width: 0 }}
-                    animate={{ width: `${skill.proficiency}%` }}
+                    animate={{ width: `${levelWidth[skill.level]}%` }}
                     transition={{ duration: 0.6 }}
                   />
                 </div>

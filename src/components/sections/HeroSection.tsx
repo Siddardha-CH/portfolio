@@ -42,9 +42,9 @@ export const HeroSection = () => {
   const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
 
   const roles = [
-    'Full Stack Developer',
+    'Java & Spring Boot Backend Developer',
     'Software Engineer',
-    'DSA Enthusiast',
+    'CodeVita Global Rank 873',
     'Problem Solver',
   ];
 
@@ -124,7 +124,7 @@ export const HeroSection = () => {
         >
           <div className="text-center">
             <AnimatedCounter
-              target={726}
+              target={880}
               suffix="+"
               className="text-5xl md:text-6xl font-display font-bold text-foreground text-glow"
             />
@@ -132,19 +132,19 @@ export const HeroSection = () => {
           </div>
           <div className="text-center">
             <AnimatedCounter
-              target={5}
-              suffix="+"
+              target={6}
+              suffix=""
               className="text-5xl md:text-6xl font-display font-bold text-foreground text-glow"
             />
             <p className="text-xs text-muted-foreground mt-2 font-mono tracking-widest uppercase">Projects</p>
           </div>
           <div className="text-center">
             <AnimatedCounter
-              target={3}
-              suffix="+"
+              target={873}
+              prefix="#"
               className="text-5xl md:text-6xl font-display font-bold text-foreground text-glow"
             />
-            <p className="text-xs text-muted-foreground mt-2 font-mono tracking-widest uppercase">Years Coding</p>
+            <p className="text-xs text-muted-foreground mt-2 font-mono tracking-widest uppercase">CodeVita Global Rank</p>
           </div>
         </motion.div>
 
@@ -155,7 +155,7 @@ export const HeroSection = () => {
           transition={{ delay: 1.2 }}
           className="flex flex-wrap justify-center gap-4 mb-16"
         >
-          <GlowingButton href="https://github.com/siddardha-CH" variant="primary" external>
+          <GlowingButton href="https://github.com/Siddardha-CH" variant="primary" external>
             <Github className="w-5 h-5" />
             GitHub
           </GlowingButton>

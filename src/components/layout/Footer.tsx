@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Code2, Heart } from 'lucide-react';
 
 const socialLinks = [
-  { icon: <Github className="w-5 h-5" />, url: 'https://github.com', label: 'GitHub' },
-  { icon: <Linkedin className="w-5 h-5" />, url: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: <Code2 className="w-5 h-5" />, url: 'https://leetcode.com', label: 'LeetCode' },
+  { icon: <Github className="w-5 h-5" />, url: 'https://github.com/Siddardha-CH', label: 'GitHub' },
+  { icon: <Linkedin className="w-5 h-5" />, url: 'https://www.linkedin.com/in/siddardha-c-5baba0204/', label: 'LinkedIn' },
+  { icon: <Code2 className="w-5 h-5" />, url: 'https://leetcode.com/u/siddardha_1712/', label: 'LeetCode' },
 ];
 
 const navLinks = [
@@ -31,7 +31,7 @@ export const Footer = () => {
               Siddardha<span className="text-primary">.</span>
             </h3>
             <p className="text-muted-foreground text-sm">
-              Full Stack Developer & Software Engineer Aspirant
+              Java & Spring Boot backend developer · Class of 2027
             </p>
           </div>
 

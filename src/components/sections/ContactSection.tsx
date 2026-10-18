@@ -13,11 +13,11 @@ const terminalLines = [
   { text: '> location', delay: 0.6 },
   { text: 'Hyderabad, India', delay: 0.9, color: 'primary' },
   { text: '> status', delay: 1.2 },
-  { text: 'Open to opportunities_', delay: 1.5, color: 'neon-green' },
+  { text: 'Open to SDE internships & backend roles_', delay: 1.5, color: 'neon-green' },
 ];
 
 const contactLinks = [
-  { name: 'GitHub', icon: <Github className="w-5 h-5" />, url: 'https://github.com/siddardha-CH', color: '#ffffff' },
+  { name: 'GitHub', icon: <Github className="w-5 h-5" />, url: 'https://github.com/Siddardha-CH', color: '#ffffff' },
   { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, url: 'https://www.linkedin.com/in/siddardha-c-5baba0204/', color: '#0077b5' },
   { name: 'LeetCode', icon: <Code2 className="w-5 h-5" />, url: 'https://leetcode.com/u/siddardha_1712/', color: '#ffa116' },
   { name: 'Email', icon: <Mail className="w-5 h-5" />, url: 'mailto:siddardhachiluveru@gmail.com', color: '#00f5ff' },
@@ -310,7 +310,7 @@ const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
             <span className="text-primary text-glow-cyan">Impactful</span> Together
           </p>
           <p className="text-muted-foreground">
-            Open to full-time opportunities, freelance projects, and collaborations
+            Open to SDE internships and entry-level backend / software roles in Hyderabad or Bangalore
           </p>
         </motion.div>
       </div>

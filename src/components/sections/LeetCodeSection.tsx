@@ -4,23 +4,25 @@ import { SectionTitle } from '@/components/ui/SectionTitle';
 import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 
 const stats = [
-  { label: 'Problems Solved', value: 726, suffix: '', color: '#7c3aed', icon: <Target className="w-5 h-5" /> },
-  { label: 'Contest Rating', value: 1657, suffix: '', color: '#f97316', icon: <Trophy className="w-5 h-5" /> },
-  { label: 'Global Rank', value: 81302, suffix: '', color: '#22d3ee', icon: <TrendingUp className="w-5 h-5" /> },
-  { label: 'Max Streak', value: 299, suffix: ' days', color: '#10b981', icon: <Flame className="w-5 h-5" /> },
+  { label: 'Problems Solved', value: 880, suffix: '+', color: '#7c3aed', icon: <Target className="w-5 h-5" /> },
+  { label: 'Contest Rating', value: 1667, suffix: '', color: '#f97316', icon: <Trophy className="w-5 h-5" /> },
+  { label: 'Contests', value: 65, suffix: '', color: '#22d3ee', icon: <TrendingUp className="w-5 h-5" /> },
+  { label: 'Day Streak Badge', value: 500, suffix: '', color: '#10b981', icon: <Flame className="w-5 h-5" /> },
 ];
 
 const difficulty = [
-  { label: 'Easy', solved: 425, total: 949, color: '#10b981' },
-  { label: 'Medium', solved: 280, total: 2067, color: '#f59e0b' },
-  { label: 'Hard', solved: 21, total: 942, color: '#ef4444' },
+  { label: 'Easy', solved: 462, color: '#10b981' },
+  { label: 'Medium', solved: 381, color: '#f59e0b' },
+  { label: 'Hard', solved: 38, color: '#ef4444' },
 ];
 
+const totalSolved = difficulty.reduce((sum, d) => sum + d.solved, 0);
+
 const badges = [
-  { name: '365 Days Badge', desc: 'Solved problems every day for a year' },
-  { name: 'Top 17.26%', desc: 'Contest performance global percentile' },
-  { name: '363 Active Days', desc: 'Consistent problem-solving habit' },
-  { name: '1,275 Submissions', desc: 'Submissions in the past year' },
+  { name: '500-Day Streak', desc: 'Badge for 500 days of daily solving' },
+  { name: '9 Badges', desc: 'Earned on LeetCode so far' },
+  { name: '384 Solutions Shared', desc: 'Write-ups with 29.2K views' },
+  { name: 'Weekly Contest 523', desc: 'Solved 3 of 4, rank 3,646 of 39,157' },
 ];
 
 export const LeetCodeSection = () => {
@@ -35,7 +37,7 @@ export const LeetCodeSection = () => {
         <SectionTitle
           accent="LeetCode"
           title="Competitive Profile"
-          subtitle="Consistent problem solving — 726 solved, Top 17.26% globally, 299-day max streak"
+          subtitle="880+ problems solved, 1,667 contest rating across 65 contests, 500-day streak badge"
         />
 
         {/* Stats grid */}
@@ -81,7 +83,7 @@ export const LeetCodeSection = () => {
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-mono font-semibold" style={{ color: d.color }}>{d.label}</span>
                     <span className="text-sm text-muted-foreground">
-                      <span className="text-foreground font-bold">{d.solved}</span> / {d.total}
+                      <span className="text-foreground font-bold">{d.solved}</span> solved
                     </span>
                   </div>
                   <div className="h-2.5 bg-muted rounded-full overflow-hidden">
@@ -89,12 +91,12 @@ export const LeetCodeSection = () => {
                       className="h-full rounded-full"
                       style={{ backgroundColor: d.color }}
                       initial={{ width: 0 }}
-                      whileInView={{ width: `${(d.solved / d.total) * 100}%` }}
+                      whileInView={{ width: `${(d.solved / totalSolved) * 100}%` }}
                       transition={{ delay: i * 0.15 + 0.3, duration: 1, ease: 'easeOut' }}
                       viewport={{ once: true }}
                     />
                   </div>
-                  <p className="text-xs text-muted-foreground mt-1">{((d.solved / d.total) * 100).toFixed(1)}% completion</p>
+                  <p className="text-xs text-muted-foreground mt-1">{((d.solved / totalSolved) * 100).toFixed(1)}% of my solves</p>
                 </div>
               ))}
             </div>

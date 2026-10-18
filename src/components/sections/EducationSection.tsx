@@ -16,11 +16,11 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
   {
-    year: '2022 - 2027',
+    year: '2023 - 2027',
     title: 'B.Tech in Computer Science & Engineering',
     institution: 'Anurag University',
     location: 'Hyderabad, India',
-    description: 'Pursuing Computer Science with focus on Software Development, Data Structures, and Algorithms.',
+    description: 'Final year, graduating 2027. CGPA 7.5 / 10. Focused on backend development, data structures and algorithms.',
     icon: <Cpu className="w-6 h-6" />,
     color: 'primary',
     details: ['Data Structures & Algorithms', 'Object-Oriented Programming', 'Database Management', 'Software Engineering'],
