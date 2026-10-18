@@ -124,11 +124,11 @@ export const HeroSection = () => {
         >
           <div className="text-center">
             <AnimatedCounter
-              target={880}
+              target={974}
               suffix="+"
               className="text-5xl md:text-6xl font-display font-bold text-foreground text-glow"
             />
-            <p className="text-xs text-muted-foreground mt-2 font-mono tracking-widest uppercase">LeetCode Problems</p>
+            <p className="text-xs text-muted-foreground mt-2 font-mono tracking-widest uppercase">Problems Solved</p>
           </div>
           <div className="text-center">
             <AnimatedCounter

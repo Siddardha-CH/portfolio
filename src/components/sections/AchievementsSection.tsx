@@ -6,10 +6,10 @@ import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 const stats = [
   {
     icon: <Code2 className="w-8 h-8" />,
-    title: 'LeetCode Solved',
-    value: 880,
-    suffix: '+',
-    description: 'Easy 462 · Medium 381 · Hard 38',
+    title: 'Problems Solved',
+    value: 974,
+    suffix: '',
+    description: 'LeetCode, GFG, CodeChef, Codeforces · DSA: Easy 467 · Med 367 · Hard 34',
     color: '#f97316',
   },
   {
@@ -23,17 +23,17 @@ const stats = [
   {
     icon: <TrendingUp className="w-8 h-8" />,
     title: 'Contest Rating',
-    value: 1667,
+    value: 1653,
     suffix: '',
-    description: 'LeetCode, across 65 contests',
+    description: 'LeetCode (max 1680) · 66 contests across platforms',
     color: '#22d3ee',
   },
   {
     icon: <Flame className="w-8 h-8" />,
-    title: 'Day Streak Badge',
-    value: 500,
+    title: 'Active Days',
+    value: 571,
     suffix: '',
-    description: '9 LeetCode badges in total',
+    description: 'Max streak 299 days · 10 awards',
     color: '#ef4444',
   },
 ];

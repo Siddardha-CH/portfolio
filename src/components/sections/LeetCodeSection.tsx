@@ -4,25 +4,25 @@ import { SectionTitle } from '@/components/ui/SectionTitle';
 import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 
 const stats = [
-  { label: 'Problems Solved', value: 880, suffix: '+', color: '#7c3aed', icon: <Target className="w-5 h-5" /> },
-  { label: 'Contest Rating', value: 1667, suffix: '', color: '#f97316', icon: <Trophy className="w-5 h-5" /> },
-  { label: 'Contests', value: 65, suffix: '', color: '#22d3ee', icon: <TrendingUp className="w-5 h-5" /> },
-  { label: 'Day Streak Badge', value: 500, suffix: '', color: '#10b981', icon: <Flame className="w-5 h-5" /> },
+  { label: 'Problems Solved', value: 974, suffix: '', color: '#7c3aed', icon: <Target className="w-5 h-5" /> },
+  { label: 'LeetCode Rating', value: 1653, suffix: '', color: '#f97316', icon: <Trophy className="w-5 h-5" /> },
+  { label: 'Contests', value: 66, suffix: '', color: '#22d3ee', icon: <TrendingUp className="w-5 h-5" /> },
+  { label: 'Max Streak', value: 299, suffix: ' days', color: '#10b981', icon: <Flame className="w-5 h-5" /> },
 ];
 
 const difficulty = [
-  { label: 'Easy', solved: 462, color: '#10b981' },
-  { label: 'Medium', solved: 381, color: '#f59e0b' },
-  { label: 'Hard', solved: 38, color: '#ef4444' },
+  { label: 'Easy', solved: 467, color: '#10b981' },
+  { label: 'Medium', solved: 367, color: '#f59e0b' },
+  { label: 'Hard', solved: 34, color: '#ef4444' },
 ];
 
 const totalSolved = difficulty.reduce((sum, d) => sum + d.solved, 0);
 
 const badges = [
-  { name: '500-Day Streak', desc: 'Badge for 500 days of daily solving' },
-  { name: '9 Badges', desc: 'Earned on LeetCode so far' },
-  { name: '384 Solutions Shared', desc: 'Write-ups with 29.2K views' },
-  { name: 'Weekly Contest 523', desc: 'Solved 3 of 4, rank 3,646 of 39,157' },
+  { name: 'LeetCode 1653', desc: 'Contest rating, max 1680 · 62 contests' },
+  { name: 'CodeChef 867', desc: 'Rating, max 910 · 96 problems' },
+  { name: '571 Active Days', desc: '10 awards across platforms' },
+  { name: 'Weekly Contest 523', desc: 'Best result: 3 of 4, rank 3,646 of 39,157' },
 ];
 
 export const LeetCodeSection = () => {
@@ -36,8 +36,8 @@ export const LeetCodeSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionTitle
           accent="LeetCode"
-          title="Competitive Profile"
-          subtitle="880+ problems solved, 1,667 contest rating across 65 contests, 500-day streak badge"
+          title="Coding Profile"
+          subtitle="974 problems across LeetCode, GFG, CodeChef and Codeforces · 66 contests · 299-day max streak"
         />
 
         {/* Stats grid */}

@@ -46,7 +46,7 @@ const skillsData: Skill[] = [
   { name: 'Claude Code / Cursor / Codex', category: 'Tools', level: 'Working', color: '#d97757', description: 'AI-assisted workflow, verified through tests and debugging' },
 
   // Core CS
-  { name: 'DSA', category: 'Core', level: 'Strong', color: '#8b5cf6', description: '880+ LeetCode problems, CodeVita Global Rank 873' },
+  { name: 'DSA', category: 'Core', level: 'Strong', color: '#8b5cf6', description: '974 problems solved, CodeVita Global Rank 873' },
   { name: 'OOP', category: 'Core', level: 'Strong', color: '#ec4899', description: 'Clean, layered Java design' },
 ];
 

@@ -23,7 +23,7 @@ const resumeItems: ResumeItem[] = [
     icon: <Code2 className="w-5 h-5" />,
     title: 'Problem Solving',
     subtitle: 'DSA Enthusiast',
-    description: '880+ LeetCode problems, 1,667 contest rating. TCS CodeVita Season 13 Global Rank 873 of 50,000+ and College Topper.',
+    description: '974 problems solved, LeetCode contest rating 1,653 (max 1,680). TCS CodeVita Season 13 Global Rank 873 of 50,000+ and College Topper.',
     period: 'Ongoing',
   },
   {
@@ -175,9 +175,9 @@ export const ResumeSection = () => {
               <h3 className="text-xl font-display font-bold text-foreground mb-6">Quick Stats</h3>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { label: 'LeetCode Solved', value: '880+' },
+                  { label: 'Problems Solved', value: '974' },
                   { label: 'CodeVita Rank', value: '#873' },
-                  { label: 'Contest Rating', value: '1,667' },
+                  { label: 'LeetCode Rating', value: '1,653' },
                   { label: 'AGENTX', value: 'Runner-Up' },
                 ].map((stat, i) => (
                   <motion.div

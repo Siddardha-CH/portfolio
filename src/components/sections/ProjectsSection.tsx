@@ -15,6 +15,7 @@ interface Project {
   icon: React.ReactNode;
   color: string;
   badge?: string;
+  note?: string;
   github?: string;
   demo?: string;
   features: string[];
@@ -26,20 +27,23 @@ const projects: Project[] = [
     title: 'CreditSense — Explainable MSME Credit Risk',
     subtitle: 'Fintech · Team of 3 · 2026',
     badge: 'Featured',
-    description: 'Compliance-first credit-risk platform for MSME lending. A rule-based eligibility gate runs ahead of ML scoring, and every decision is explainable and recorded in an append-only audit trail.',
-    problem: 'Credit models for small businesses are often black boxes, and lenders need to show why a decision was made and prove nobody changed the record afterwards.',
-    solution: 'I owned the security and reliability side of the Spring Boot backend: JWT authentication with rotating refresh tokens, an append-only audit trail, backend tests and CI. I also co-authored the IEEE-format paper. Runs on simulated data.',
-    techStack: ['Java 21', 'Spring Boot 3.5', 'PostgreSQL', 'Docker', 'React'],
+    description: 'Compliance-gated, explainable credit-risk platform for MSME lending. Every application passes a deterministic compliance gate (GSTIN check character, KYC, fraud rules) before an XGBoost model scores it, and every score ships with a SHAP ledger that adds up exactly to it.',
+    problem: 'Credit models for small businesses are often black boxes. Lenders need to show why a decision was made, never show a score they cannot explain, and prove nobody changed the record afterwards.',
+    solution: 'Team of 3. I worked on the Spring Boot core API: JWT authentication (15-minute access tokens, rotating refresh tokens in an HttpOnly cookie with reuse detection), the append-only audit trail, backend tests and the CI pipeline. I also co-authored the IEEE-format paper. Research demo trained on simulated data.',
+    note: 'Hosted on free Render servers: the first visit can take 3 to 4 minutes while the API and model wake up.',
+    techStack: ['Java 21', 'Spring Boot 3.5', 'PostgreSQL', 'FastAPI', 'XGBoost + SHAP', 'Docker', 'React'],
     icon: <ShieldCheck className="w-8 h-8" />,
     color: '#10b981',
     github: 'https://github.com/CreditSense-s/CreditSense',
     demo: 'https://creditsense-seven.vercel.app',
     features: [
-      'Rule-based compliance gate before ML scoring',
-      'Explainable, per-decision risk breakdown',
-      'JWT auth with rotating refresh tokens',
-      'Append-only audit trail',
-      'Backend tests + CI pipeline',
+      'Deterministic compliance gate before any ML score',
+      'SHAP ledger on every score, or no score at all',
+      'JWT + rotating HttpOnly refresh cookie, reuse detection',
+      'Append-only audit trail (DB trigger blocks edits)',
+      'Circuit breaker falls back to manual review',
+      'CI runs all suites + full-stack smoke test',
+      'Live: Vercel + Render + Supabase',
       'IEEE-format paper (co-author)',
     ],
   },
@@ -270,6 +274,9 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           </div>
         </div>
         <p className="text-lg text-muted-foreground mb-6">{project.description}</p>
+        {project.note && (
+          <p className="text-sm text-muted-foreground mb-6 p-3 rounded-lg bg-muted">{project.note}</p>
+        )}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           <div className="p-4 rounded-xl bg-destructive/10 border border-destructive/20">
             <h4 className="font-display font-semibold text-destructive mb-2">The Problem</h4>
